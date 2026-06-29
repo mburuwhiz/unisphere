@@ -1,0 +1,111 @@
+<svg width="800" height="200" viewBox="0 0 800 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+
+    <linearGradient id="sphereGradient" x1="20" y1="20" x2="180" y2="180">
+        <stop stop-color="#8B5CF6"></stop>
+        <stop offset="1" stop-color="#6366F1"></stop>
+    </linearGradient>
+
+    <linearGradient id="textGradient" x1="400" y1="50" x2="650" y2="150">
+        <stop stop-color="#C4B5FD"></stop>
+        <stop offset="0.5" stop-color="#8B5CF6"></stop>
+        <stop offset="1" stop-color="#6366F1"></stop>
+    </linearGradient>
+
+
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="8" result="blur"></feGaussianBlur>
+        <feMerge>
+            <feMergeNode in="blur"></feMergeNode>
+            <feMergeNode in="SourceGraphic"></feMergeNode>
+        </feMerge>
+    </filter>
+
+
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#8B5CF6" flood-opacity="0.45"></feDropShadow>
+    </filter>
+
+</defs>
+
+
+<!-- BACKGROUND TRANSPARENT -->
+
+
+<!-- NETWORK SPHERE ICON -->
+
+<g transform="translate(35 25)" filter="url(#softShadow)">
+
+
+    <!-- Outer sphere -->
+
+    <circle cx="75" cy="75" r="65" stroke="url(#sphereGradient)" stroke-width="6" opacity="0.9"></circle>
+
+
+    <!-- Orbital connections -->
+
+    <ellipse cx="75" cy="75" rx="65" ry="28" stroke="#8B5CF6" stroke-width="3" opacity="0.7"></ellipse>
+
+
+    <ellipse cx="75" cy="75" rx="28" ry="65" stroke="#6366F1" stroke-width="3" opacity="0.7"></ellipse>
+
+
+
+    <!-- Network lines -->
+
+    <path d="
+    M75 10
+    L75 140
+
+    M10 75
+    L140 75
+
+    M35 35
+    L115 115
+
+    M115 35
+    L35 115
+    " stroke="#A78BFA" stroke-width="2" opacity="0.55"></path>
+
+
+
+    <!-- Nodes -->
+
+    <g fill="#FFFFFF" filter="url(#glow)">
+
+        <circle cx="75" cy="10" r="7"></circle>
+        <circle cx="140" cy="75" r="7"></circle>
+        <circle cx="75" cy="140" r="7"></circle>
+        <circle cx="10" cy="75" r="7"></circle>
+
+        <circle cx="75" cy="75" r="11"></circle>
+
+        <circle cx="35" cy="35" r="6"></circle>
+        <circle cx="115" cy="35" r="6"></circle>
+        <circle cx="35" cy="115" r="6"></circle>
+        <circle cx="115" cy="115" r="6"></circle>
+
+    </g>
+
+
+</g>
+
+
+
+<!-- BRAND NAME -->
+
+<text x="235" y="125" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="92" font-weight="800" letter-spacing="-3" fill="url(#textGradient)" filter="url(#glow)">
+Unisphere
+</text>
+
+
+
+<!-- TAGLINE -->
+
+<text x="240" y="160" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="500" letter-spacing="5" fill="#A5B4FC" opacity="0.8">
+THE DEKUT CAMPUS NETWORK
+</text>
+
+
+</svg>

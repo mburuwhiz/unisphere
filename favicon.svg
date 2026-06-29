@@ -1,0 +1,78 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+
+<defs>
+
+<linearGradient id="favGradient" x1="0" y1="0" x2="128" y2="128">
+
+<stop stop-color="#8B5CF6"></stop>
+<stop offset="1" stop-color="#6366F1"></stop>
+
+</linearGradient>
+
+
+<filter id="favGlow">
+
+<feGaussianBlur stdDeviation="4" result="blur"></feGaussianBlur>
+
+<feMerge>
+
+<feMergeNode in="blur"></feMergeNode>
+<feMergeNode in="SourceGraphic"></feMergeNode>
+
+</feMerge>
+
+</filter>
+
+
+</defs>
+
+
+
+<circle cx="64" cy="64" r="55" stroke="url(#favGradient)" stroke-width="6"></circle>
+
+
+
+<ellipse cx="64" cy="64" rx="55" ry="25" stroke="#8B5CF6" stroke-width="3"></ellipse>
+
+
+<ellipse cx="64" cy="64" rx="25" ry="55" stroke="#6366F1" stroke-width="3"></ellipse>
+
+
+
+<path d="
+M64 9
+V119
+
+M9 64
+H119
+
+M25 25
+L103 103
+
+M103 25
+L25 103
+" stroke="#C4B5FD" stroke-width="2"></path>
+
+
+
+<g fill="white" filter="url(#favGlow)">
+
+<circle cx="64" cy="64" r="10"></circle>
+
+<circle cx="64" cy="9" r="6"></circle>
+<circle cx="119" cy="64" r="6"></circle>
+<circle cx="64" cy="119" r="6"></circle>
+<circle cx="9" cy="64" r="6"></circle>
+
+
+<circle cx="25" cy="25" r="5"></circle>
+<circle cx="103" cy="25" r="5"></circle>
+<circle cx="25" cy="103" r="5"></circle>
+<circle cx="103" cy="103" r="5"></circle>
+
+
+</g>
+
+
+</svg>
