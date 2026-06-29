@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Unisphere - Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#1000a9",
+                        "tertiary": "#ffb0cd",
+                        "tertiary-fixed": "#ffd9e4",
+                        "tertiary-fixed-dim": "#ffb0cd",
+                        "on-error": "#690005",
+                        "on-background": "#dce1fb",
+                        "secondary": "#c0c1ff",
+                        "on-surface-variant": "#cbc3d7",
+                        "secondary-container": "#3131c0",
+                        "on-primary-fixed-variant": "#5516be",
+                        "on-primary-fixed": "#23005c",
+                        "primary": "#d0bcff",
+                        "outline-variant": "#494454",
+                        "on-surface": "#dce1fb",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "secondary-fixed": "#e1e0ff",
+                        "primary-container": "#a078ff",
+                        "primary-fixed-dim": "#d0bcff",
+                        "on-tertiary": "#640039",
+                        "on-primary-container": "#340080",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "on-tertiary-fixed-variant": "#8c0053",
+                        "surface-container-low": "#151b2d",
+                        "inverse-primary": "#6d3bd7",
+                        "on-tertiary-fixed": "#3e0022",
+                        "error-container": "#93000a",
+                        "error": "#ffb4ab",
+                        "tertiary-container": "#f751a1",
+                        "surface-bright": "#33394c",
+                        "surface-container-high": "#23293c",
+                        "surface": "#0c1324",
+                        "on-secondary-container": "#b0b2ff",
+                        "surface-container": "#191f31",
+                        "surface-variant": "#2e3447",
+                        "surface-container-highest": "#2e3447",
+                        "surface-tint": "#d0bcff",
+                        "on-secondary-fixed": "#07006c",
+                        "primary-fixed": "#e9ddff",
+                        "background": "#0c1324",
+                        "surface-dim": "#0c1324",
+                        "on-error-container": "#ffdad6",
+                        "outline": "#958ea0",
+                        "on-primary": "#3c0091",
+                        "inverse-on-surface": "#2a3043",
+                        "surface-container-lowest": "#070d1f",
+                        "on-tertiary-container": "#570032",
+                        "inverse-surface": "#dce1fb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit-base": "8px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Geist"],
+                        "headline-lg-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Geist"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background-color: rgba(12, 19, 36, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-effect {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #d0bcff 0%, #a078ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation (Mobile suppressed as per rules for detailed/transactional view, Desktop uses drawer layout for private) -->
+<div class="flex h-screen overflow-hidden">
+<!-- Side Navigation Drawer (Desktop) -->
+<nav class="hidden md:flex flex-col h-full py-8 bg-surface-dim border-r border-outline-variant/30 h-screen w-64 fixed left-0 top-0 transition-all z-40">
+<div class="px-gutter mb-8">
+<h1 class="text-headline-md font-headline-md text-primary-fixed tracking-tight">Admin Console</h1>
+</div>
+<ul class="flex-1 px-unit-base space-y-unit-base">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                        Dashboard
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                        Analytics
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">group</span>
+                        User Management
+                    </a>
+</li>
+<li>
+<!-- Mapped 'Market' intent to Finance for this private layout context, though standard nav suppresses on details. Since it's a private admin layout, keeping structure -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-bold border-r-4 border-primary hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">payments</span>
+                        Finance
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                        Settings
+                    </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+                        Audit Logs
+                    </a>
+</li>
+</ul>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 overflow-y-auto h-full relative">
+<!-- Abstract Background Elements -->
+<div class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-primary-container/10 to-transparent -z-10"></div>
+<div class="absolute top-1/4 right-1/4 w-96 h-96 bg-tertiary-container/5 rounded-full blur-[100px] -z-10"></div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-gutter space-y-12 pb-32">
+<!-- Section 1: Marketplace Item Details -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Image Carousel Area -->
+<div class="space-y-4">
+<div class="glass-panel rounded-xl aspect-[4/3] relative overflow-hidden group">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-resolution product shot of a sleek, modern academic textbook titled 'Advanced Algorithms'. The book is placed on a dark, reflective glass table under soft, studio lighting. The aesthetic is premium, moody, and technological, with a subtle violet underglow illuminating the bottom edge of the book against a deep slate background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS5xVIyzk-KJyKZK7MARISK3uRyGRE4o-Kjty02UQIaNpBG1nCUdoOstjb_0TNFjM1meESaUqBsXIBujZBBm0-8dnu9Byrqm2euNoAVHD1AZETAiS9um6_xhAkq9yzGXCIcQPOB-5e4HhC19YlcvSaYgh1MvR1iOHdtJGwNazdw_Qb7zXyjoD0aZE-902n4Lmcd5O9eTdPU7ZxxLaBs7IpsYi-CSG8_unTYs6AQtXNtbnoN3kgURiiTXLuNW_cPkn66PRx4Spid8u0"/>
+<div class="absolute top-4 right-4 bg-surface/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Available</span>
+</div>
+<!-- Carousel Controls -->
+<div class="absolute inset-x-0 bottom-4 flex justify-center gap-2">
+<div class="w-2 h-2 rounded-full bg-primary glow-effect"></div>
+<div class="w-2 h-2 rounded-full bg-white/30"></div>
+<div class="w-2 h-2 rounded-full bg-white/30"></div>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="glass-panel rounded-lg aspect-square overflow-hidden opacity-50 hover:opacity-100 cursor-pointer transition-opacity border-primary">
+<img class="w-full h-full object-cover" data-alt="A close up shot of the spine of the 'Advanced Algorithms' textbook. The spine features silver foil stamping for the title. The lighting is dark and moody, highlighting the texture of the cover material against a deep slate background. The visual style is premium and academic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxPHhDvHSzMuVzPErqmZKxZGXpcwh0uH9IdmhEtwJY2ISrV8SQhdz1Zr29HoNdq3sZDYzDEIL0-pbOR83cc85A5rQZgHVyZ51sKWef6hy8mfsc8ftGM3Gq-lYnCSlz8B6R5kRH9IDd1RjRiIoaEcZ4sV8eeufm5mHDyIXdiCYpCR7RdhPXvMfDx6LQuyijKBJW6a778G9qqDLqVGQdXx_edM3nXTNV2uezoki5bYs5rPOIQmUNhVEvNyRQ_Mcuiy1LPKvqTIY-Y90X"/>
+</div>
+<div class="glass-panel rounded-lg aspect-square overflow-hidden opacity-50 hover:opacity-100 cursor-pointer transition-opacity">
+<img class="w-full h-full object-cover" data-alt="An open page of the 'Advanced Algorithms' textbook showing complex mathematical diagrams and code snippets. The page is illuminated by a sharp, focused desk lamp, casting a dramatic shadow on the opposite page. The overall scene is dark, studious, and hyper-detailed." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-QrqF5vPVrgXe4RQePqCojtkGnHpMhAIdJTTdcic7Z4nGQSsjDID8R5jEhvPcf8iEgjFtsQFUqEBG1VAYoRbT2PlqNnQNFEDo7b87G6XVxJuItOHzv57Jpes57RZyk8asOx_KL6yrMp9ousP2xgtNFOyxbNZTxP7Dw47nh6OKCCI9C4QMfoD_4qGFWsZrv811vVlZr-TkCCxaA_zvZYNJVQk1l6TNcF63CuSG5Nzn7miYYdpKhlAmFeteHUsm3UNL8GxmJG7oyXMQ"/>
+</div>
+</div>
+</div>
+<!-- Item Details & Seller Info -->
+<div class="flex flex-col gap-6">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="font-label-sm text-label-sm px-2 py-1 bg-surface-container-high rounded-md text-on-surface-variant">Textbooks</span>
+<span class="font-label-sm text-label-sm px-2 py-1 bg-surface-container-high rounded-md text-on-surface-variant">Condition: Like New</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface tracking-tight mb-2">Advanced Algorithms &amp; Data Structures (4th Ed)</h2>
+<p class="font-headline-md text-headline-md text-gradient mb-4">KES 4,500</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                                Required text for CS301. Excellent condition, no highlighting or missing pages. Includes unused digital access code. Selling because I changed my major.
+                            </p>
+</div>
+<!-- Seller Info Bento Box -->
+<div class="glass-panel p-6 rounded-xl flex items-start gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest shrink-0">
+<img class="w-full h-full object-cover" data-alt="A portrait of a young college student with glasses, smiling subtly. The lighting is cinematic and moody, with a rim light illuminating their hair against a dark slate background. The aesthetic is professional and trustworthy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoeIZKEu_Q3zOFupFPgVLUXlPezEWHuzG8SQlBUa9vWh5RjzhvhAMhOzYcNNxLyA3bRWdTOa2qC5UEqEE0w_ktkea_oXqrJh13USi8qnf4vZeTZuCuxMbXjdWvgacxR5JhqoKSNvT60HCfoTifFCbWD4XJQm0GOvHoLFGHG1uQVKtuplxIGKFVBYkABTLMIaLbqil1P-Y2WY6onv-n4Vwj4R76sX1fcz5k-PEcLXpKFp-Dk8CwsN9vjD5XlV0Vxl2zEAFE3nyaMxl0"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-body-lg text-body-lg text-on-surface">Alex Mercer</h3>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-on-surface">4.9 (12 reviews)</span>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1 mb-3">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                                    Verified Student • Joined 2023
+                                </p>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 transition-colors font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+                                        Message
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Escrow / Security Info -->
+<div class="bg-surface-container-low border border-primary/20 p-4 rounded-xl flex items-start gap-3 mt-auto">
+<span class="material-symbols-outlined text-primary mt-0.5">lock</span>
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Secure Escrow Protection</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Funds are held securely until you receive and verify the item. Payment is only released to the seller upon your confirmation.</p>
+</div>
+</div>
+</div>
+</section>
+<hr class="border-white/10"/>
+<!-- Section 2: Checkout (M-Pesa STK Push Trigger) -->
+<section class="max-w-xl mx-auto">
+<h3 class="font-headline-md text-headline-md mb-6 text-center text-on-surface">Secure Checkout</h3>
+<div class="glass-panel p-8 rounded-xl relative overflow-hidden">
+<!-- Decorative background glow for form -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-[40px] -z-10"></div>
+<div class="flex justify-between items-center mb-6 pb-6 border-b border-white/10">
+<div>
+<h4 class="font-body-lg text-body-lg text-on-surface">Total Amount</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Includes escrow fee</p>
+</div>
+<span class="font-headline-md text-headline-md text-gradient">KES 4,500</span>
+</div>
+<form class="space-y-6">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">M-Pesa Phone Number</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-label-md text-label-md">+254</span>
+<input class="w-full bg-surface-dim border border-outline-variant/50 rounded-lg py-3 pl-14 pr-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-label-md text-label-md text-on-surface placeholder:text-outline" placeholder="7XX XXX XXX" required="" type="tel"/>
+</div>
+<p class="mt-2 font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">info</span>
+                                    A prompt will appear on this phone.
+                                </p>
+</div>
+<button class="w-full py-4 bg-gradient-to-r from-inverse-primary to-primary-container text-white rounded-lg font-label-md text-label-md hover:opacity-90 transition-opacity glow-effect flex items-center justify-center gap-2 group" type="button">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">send_to_mobile</span>
+                                Initiate Payment
+                            </button>
+</form>
+</div>
+</section>
+<hr class="border-white/10"/>
+<!-- Section 3: Marketplace Create (Listing Upload Form) -->
+<section>
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">Create New Listing</h3>
+<span class="px-3 py-1 bg-surface-container-highest rounded-full font-label-sm text-label-sm text-on-surface-variant border border-white/5">Step 1 of 2</span>
+</div>
+<div class="glass-panel p-6 md:p-8 rounded-xl">
+<form class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Left Col: Media Upload -->
+<div class="space-y-6">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Photos</label>
+<div class="border-2 border-dashed border-outline-variant/50 rounded-xl h-48 flex flex-col items-center justify-center bg-surface-dim/50 hover:bg-surface-dim transition-colors cursor-pointer group">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-3 group-hover:bg-primary-container/20 transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">add_photo_alternate</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface">Click to upload or drag and drop</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">SVG, PNG, JPG or GIF (max. 800x400px)</p>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-2">
+<div class="aspect-square bg-surface-container rounded-lg border border-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">image</span>
+</div>
+<div class="aspect-square bg-surface-container rounded-lg border border-white/5 flex items-center justify-center opacity-50"></div>
+<div class="aspect-square bg-surface-container rounded-lg border border-white/5 flex items-center justify-center opacity-50"></div>
+<div class="aspect-square bg-surface-container rounded-lg border border-white/5 flex items-center justify-center opacity-50"></div>
+</div>
+</div>
+<!-- Right Col: Details -->
+<div class="space-y-6">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Item Title</label>
+<input class="w-full bg-surface-dim border border-outline-variant/50 rounded-lg py-3 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-label-md text-label-md text-on-surface placeholder:text-outline" placeholder="e.g. Scientific Calculator" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Price (KES)</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-label-md text-label-md">KES</span>
+<input class="w-full bg-surface-dim border border-outline-variant/50 rounded-lg py-3 pl-12 pr-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-label-md text-label-md text-on-surface placeholder:text-outline" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Condition</label>
+<select class="w-full bg-surface-dim border border-outline-variant/50 rounded-lg py-3 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-label-md text-label-md text-on-surface appearance-none">
+<option>New</option>
+<option>Like New</option>
+<option>Good</option>
+<option>Fair</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Description</label>
+<textarea class="w-full bg-surface-dim border border-outline-variant/50 rounded-lg py-3 px-4 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors font-label-md text-label-md text-on-surface placeholder:text-outline resize-none" placeholder="Describe the item, any flaws, and reason for selling..." rows="4"></textarea>
+</div>
+<div class="flex justify-end gap-4 pt-4 border-t border-white/5">
+<button class="px-6 py-2 rounded-lg font-label-md text-label-md text-on-surface hover:bg-surface-container-high transition-colors" type="button">Cancel</button>
+<button class="px-6 py-2 bg-primary/20 text-primary border border-primary/50 hover:bg-primary/30 rounded-lg font-label-md text-label-md transition-colors shadow-[0_0_15px_rgba(208,188,255,0.15)] flex items-center gap-2" type="button">
+                                        Continue
+                                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+</section>
+</div>
+</main>
+</div>
+</body></html>

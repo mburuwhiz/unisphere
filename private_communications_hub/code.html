@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Chat Hub - Unisphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#c0c1ff",
+                      "primary-container": "#a078ff",
+                      "secondary-fixed": "#e1e0ff",
+                      "on-tertiary": "#640039",
+                      "surface-bright": "#33394c",
+                      "surface-dim": "#0c1324",
+                      "on-background": "#dce1fb",
+                      "on-secondary-container": "#b0b2ff",
+                      "tertiary-fixed": "#ffd9e4",
+                      "surface-container-high": "#23293c",
+                      "error-container": "#93000a",
+                      "inverse-on-surface": "#2a3043",
+                      "on-surface-variant": "#cbc3d7",
+                      "surface-container-highest": "#2e3447",
+                      "on-secondary": "#1000a9",
+                      "outline": "#958ea0",
+                      "outline-variant": "#494454",
+                      "primary-fixed-dim": "#d0bcff",
+                      "surface-variant": "#2e3447",
+                      "surface-container-lowest": "#070d1f",
+                      "inverse-primary": "#6d3bd7",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed": "#07006c",
+                      "on-surface": "#dce1fb",
+                      "on-primary": "#3c0091",
+                      "tertiary": "#ffb0cd",
+                      "error": "#ffb4ab",
+                      "tertiary-fixed-dim": "#ffb0cd",
+                      "primary-fixed": "#e9ddff",
+                      "background": "#0c1324",
+                      "on-primary-fixed-variant": "#5516be",
+                      "on-tertiary-fixed-variant": "#8c0053",
+                      "on-primary-container": "#340080",
+                      "primary": "#d0bcff",
+                      "surface-container-low": "#151b2d",
+                      "on-error": "#690005",
+                      "surface-container": "#191f31",
+                      "on-primary-fixed": "#23005c",
+                      "on-tertiary-fixed": "#3e0022",
+                      "inverse-surface": "#dce1fb",
+                      "surface-tint": "#d0bcff",
+                      "on-secondary-fixed-variant": "#2f2ebe",
+                      "tertiary-container": "#f751a1",
+                      "secondary-container": "#3131c0",
+                      "on-tertiary-container": "#570032",
+                      "surface": "#0c1324",
+                      "secondary-fixed-dim": "#c0c1ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "margin-desktop": "40px",
+                      "margin-mobile": "16px",
+                      "unit-base": "8px"
+              },
+              "fontFamily": {
+                      "headline-xl": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-sm": ["Geist"],
+                      "label-md": ["Geist"]
+              },
+              "fontSize": {
+                      "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                      "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                      "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                      "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                      "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        body { background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-input {
+            background: theme('colors.surface-dim');
+            border: 1px solid theme('colors.outline-variant');
+        }
+        .glass-input:focus {
+            border-color: theme('colors.primary');
+            box-shadow: 0 0 0 1px theme('colors.primary');
+            outline: none;
+        }
+        .glow-button {
+            background: linear-gradient(135deg, theme('colors.inverse-primary'), theme('colors.primary-container'));
+            position: relative;
+        }
+        .glow-button::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .glow-button:hover::after { opacity: 1; }
+        .message-bubble-sent {
+            background: linear-gradient(135deg, theme('colors.surface-container-high'), theme('colors.surface-container-highest'));
+            border-bottom-right-radius: 0;
+        }
+        .message-bubble-received {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-bottom-left-radius: 0;
+        }
+        /* Custom Scrollbar for chat */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col h-screen overflow-hidden">
+<!-- TopAppBar -->
+<header class="bg-surface/60 backdrop-blur-md sticky top-0 w-full z-40 bg-surface-container-high/30 border-b border-white/10 shadow-md flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16">
+<div class="flex items-center gap-4">
+<div class="h-8 w-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A close up portrait of a student, looking professional and friendly, set against a dark glassmorphic background with subtle violet lighting accents, representing the app's premium aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC61-icwNZ2oSfxDcss4qeRYdjdrldIXNNCdwNxQ2ZX7_tg3hKDdYgy-VUQMffz32TFySSGHkDNj_ggn0ezVnFskOvB3z1JnfbbU5GHywbO-sA-y094dv_530RPqT1p7MFJ8b0s2KibegIGYuWAC7ZLxXjE4DAcMPOrRY9sMFO17Py5-pVxfqvGIWd3BOibnqNPWJryNULpppd7_ytVp5uznZRsh9h5ksUqfY9LTjvveEbgeKoT8ZpUfK5WNvW1_pjBEjBl_lFqdR5n"/>
+</div>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary">Unisphere</h1>
+</div>
+<div class="cursor-pointer active:scale-95 text-primary hover:bg-white/10 p-2 rounded-full transition-colors ripple effect on click">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex overflow-hidden max-w-[1280px] mx-auto w-full relative">
+<!-- Navigation Drawer (Desktop) -->
+<nav class="hidden md:flex flex-col h-full py-8 bg-surface-dim h-screen w-64 fixed left-0 top-0 border-r border-outline-variant/30 z-30 pt-24 pl-6">
+<div class="text-headline-md font-headline-md text-primary-fixed mb-8">Admin Console</div>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md slide-in transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md slide-in transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                    Analytics
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md slide-in transition-all" href="#">
+<span class="material-symbols-outlined">group</span>
+                    User Management
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md slide-in transition-all" href="#">
+<span class="material-symbols-outlined">payments</span>
+                    Finance
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md slide-in transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md slide-in transition-all" href="#">
+<span class="material-symbols-outlined">history_edu</span>
+                    Audit Logs
+                </a>
+</div>
+</nav>
+<!-- Chat Container (Pushed right on desktop for nav) -->
+<div class="flex flex-1 w-full h-full md:ml-64 relative bg-surface">
+<!-- Messages List (Left Sidebar) -->
+<div class="w-full md:w-[350px] lg:w-[400px] h-full flex flex-col border-r border-outline-variant/20 bg-surface-container-lowest md:relative absolute inset-0 z-20" id="chat-list">
+<!-- Search & Filters -->
+<div class="p-4 border-b border-outline-variant/20">
+<div class="font-headline-md text-headline-md mb-4">Messages</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="glass-input w-full pl-10 pr-4 py-2 rounded-xl text-body-md font-body-md text-on-surface placeholder:text-on-surface-variant/50" placeholder="Search chats..." type="text"/>
+</div>
+</div>
+<!-- Chat List Items -->
+<div class="flex-1 overflow-y-auto p-2 space-y-1">
+<!-- Active Item -->
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-high cursor-pointer transition-colors relative">
+<div class="relative">
+<img alt="Alex" class="w-12 h-12 rounded-full object-cover border-2 border-surface" data-alt="A small circular avatar of a female student with glasses, smiling softly. High-end glassmorphic style with subtle dark lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvzc_uJrxot0giV1o1PcVm21KObjdOsLPIY4eL29uFrfg7UgesxBNp7E5BCENv1mHQpL1joitIV3TBABTPqdFtTiwj1a2_iWZVOL_dv0JN_KazWXd1kIXuAFJiQ-WJ9_kai1ML0xtJm8DYI-S9IrPNn2BuyFtB5YP-eu48mOQ0AxfzseTyQzIjqfbZuUqyqZO1DiNQOf4h5NlKUugW9xb9uncELPqMGXIKzImGatMcq7nMi-8UdtBTMhfaTBxJ1QAivR3mde63RT_L"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-surface"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<span class="font-label-md text-label-md font-bold text-on-surface truncate">Alex Chen</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70">10:42 AM</span>
+</div>
+<p class="font-body-md text-[14px] text-on-surface-variant truncate">Are we still meeting for the study group later?</p>
+</div>
+</div>
+<!-- Inactive Items -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="relative">
+<img alt="Marcus" class="w-12 h-12 rounded-full object-cover border-2 border-surface" data-alt="A small circular avatar of a male student wearing a hoodie. High-end dark theme glassmorphic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaKkTr_3n0U4N7dWzE32ZGOm6cRVKQFPwInxE7lbVagBiUtkXvgw3DEackJdNfK_GKt5p3YO01J-21aUBlpr3LzIAXs1SRGRGtCWl60QvF0v0Dkh0JL1tm74AzERKahSD7XeNnBZAJuF292EPOoNPObv7bgrS9GIAte-5IkzY1jkxJ85rekdqxreCu3IxGKPuMnweUz8y6chEjkz_ojhSvSJ0rnv-AfDXRPjhgbvmhAjkqXGBtzdr7K9Bs_Vr19kj3NGIjhDkTsas9"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-outline rounded-full border-2 border-surface"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<span class="font-label-md text-label-md text-on-surface truncate">Marcus Johnson</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70">Yesterday</span>
+</div>
+<p class="font-body-md text-[14px] text-on-surface-variant truncate">Thanks for the notes!</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-low cursor-pointer transition-colors">
+<div class="relative">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center text-primary font-headline-md">S</div>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-surface"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-baseline mb-1">
+<span class="font-label-md text-label-md text-on-surface truncate">Sarah Williams</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70">Tue</span>
+</div>
+<p class="font-body-md text-[14px] text-on-surface-variant truncate font-semibold text-primary">Sent an attachment</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Chat Window -->
+<div class="flex-1 flex flex-col h-full bg-surface hidden md:flex" id="chat-window">
+<!-- Chat Header -->
+<div class="h-16 px-6 border-b border-outline-variant/20 flex items-center justify-between bg-surface-dim/80 backdrop-blur-sm z-10">
+<div class="flex items-center gap-4">
+<button class="md:hidden text-on-surface-variant hover:text-primary transition-colors" onclick="toggleChatMobile()">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div class="flex items-center gap-3">
+<img alt="Alex" class="w-10 h-10 rounded-full object-cover" data-alt="A small circular avatar of a female student with glasses, smiling softly. High-end glassmorphic style with subtle dark lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzAP7Eq670D_ZADuXE5YscG7QUg7j79pZmLgmrmS6LzYlg4N-SfgiUudtzvBwKuW18-oKaSaCesnAkV4DnMtYwsBU6QSWVhGE42qVv4rlYnLu_Xo9PJPRs_Rf8olddUgoURzzqy3UKxrDNbGoYuZcIoCU-FkPJipoWGaYpvXD7QyhNvH7G6wWXFkMsrFajJnFdqQKTDrZulUA9CpDJ_ACUTR5udYoAHT6hfOWAVglutL4wqmA1UaDmoQABIHm1n6l_Nzi0f95UogG4"/>
+<div>
+<div class="font-label-md text-label-md font-bold text-on-surface">Alex Chen</div>
+<div class="font-label-sm text-label-sm text-green-400 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400"></span> Online
+                                </div>
+</div>
+</div>
+</div>
+<div class="flex gap-4 text-on-surface-variant">
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">call</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">videocam</span></button>
+<button class="hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+</div>
+<!-- Message History -->
+<div class="flex-1 overflow-y-auto p-6 space-y-6 flex flex-col">
+<!-- Date Divider -->
+<div class="flex items-center justify-center my-4">
+<div class="glass-card px-4 py-1 rounded-full font-label-sm text-label-sm text-on-surface-variant">Today, 10:30 AM</div>
+</div>
+<!-- Received Message -->
+<div class="flex items-end gap-2 max-w-[80%]">
+<img alt="Alex" class="w-8 h-8 rounded-full object-cover mb-1" data-alt="A small circular avatar of a female student with glasses, smiling softly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4SJnxyh0LyPPbqtLs2XbpxholHQQ_xiPHRVGz8gizlWVUgoEFlDHJl9gxNBdvvppWrMI-UV_rcH9yvzVTrV-h-yvZQyU3d25yb0IQ1jxpVZ8UaA8QZVVePhzaGb7MXRt_2uLGns9zxgiOuwPFwQw1xyfvDqJGm0xkOZHeT83QFHSe7OL6fjoem6Iq4M_ubsbW7tBcMAJzLsF5Q5ce7m0JOL_Adr-4h6RN__95P_3MfF7jJUK5owfbL4H4LTQsZbZ8qwrYHbpt3-Qr"/>
+<div class="message-bubble-received p-4 rounded-2xl">
+<p class="font-body-md text-body-md text-on-surface">Hey! Are we still on for the study session at the library later?</p>
+<span class="font-label-sm text-[10px] text-on-surface-variant/50 mt-1 block">10:32 AM</span>
+</div>
+</div>
+<!-- Sent Message -->
+<div class="flex items-end justify-end gap-2 max-w-[80%] self-end">
+<div class="message-bubble-sent p-4 rounded-2xl shadow-lg border border-white/5">
+<p class="font-body-md text-body-md text-on-surface">Yes definitely! I just finished the reading for Chapter 4.</p>
+<div class="flex items-center justify-end gap-1 mt-1">
+<span class="font-label-sm text-[10px] text-on-surface-variant/50">10:35 AM</span>
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</div>
+</div>
+</div>
+<!-- Received Message (Attachment) -->
+<div class="flex items-end gap-2 max-w-[80%]">
+<img alt="Alex" class="w-8 h-8 rounded-full object-cover mb-1" data-alt="A small circular avatar of a female student with glasses, smiling softly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtSefoq0sj2wI-YV97fga5TKihoMEjDVUq8ZRuYz5qFkk_dLUZ4ArZLiNNOUxexksHl2_DNTwYPQnNoCUDUTuqjQSE0s8xHLRpmpauEtktNr4SJVHMmECkbJmGj7632f0VLHpohKqd9hFAv90-gDbmmdZqWScyoagCyq5xuEtpzTiWop8mQSrKo52yvWf2oIPjkEF9ptS3DtRmE9VoqnnvnxA8AwEoSA69yKvpwbvC94YP5FVfQFNZPW6_fK3mJFXABG0gO3JYbj3i"/>
+<div class="message-bubble-received p-4 rounded-2xl">
+<p class="font-body-md text-body-md text-on-surface mb-3">Awesome. I found some old exam questions we can go over too.</p>
+<div class="glass-card p-3 rounded-xl flex items-center gap-3 w-64 cursor-pointer hover:bg-white/5 transition-colors">
+<div class="w-10 h-10 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-label-md text-label-md text-on-surface truncate">Midterm_Review_F23.pdf</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">2.4 MB</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">download</span>
+</div>
+<span class="font-label-sm text-[10px] text-on-surface-variant/50 mt-2 block">10:42 AM</span>
+</div>
+</div>
+<!-- Typing Indicator -->
+<div class="flex items-end gap-2 max-w-[80%]">
+<img alt="Alex" class="w-8 h-8 rounded-full object-cover mb-1" data-alt="A small circular avatar of a female student with glasses, smiling softly." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIqmKw6GPFy0rQGL3tZb6K6mLzGkceWRoR0Svm1N2GxwI6NAT8ZvnXnkWyNR1qboukkEO5Tzi7uY2SmHGEM7TtnJ8X3a7kSxM2oCHS7CMhN0sebgPveYKgCAUxTyxBZv4rrq0ralZyNy0ZlFcG64vWEo3xJKkDoxIMdsa5F1dQcDQGItkkf9MxrIb0n8ziQ71ziC311ZfHWihJfSk7QAxz3f1uID0fF0PpAzC2Y1IWR_v_FjJxYL5sPoDLa0wIoni3R0bpR-cEXaAg"/>
+<div class="glass-card p-3 rounded-2xl rounded-bl-none flex gap-1 items-center h-10">
+<div class="w-2 h-2 rounded-full bg-primary/60 animate-bounce" style="animation-delay: 0ms;"></div>
+</div></div></div></div></div></main></body></html>

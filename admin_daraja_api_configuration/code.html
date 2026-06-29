@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daraja API Settings - Unisphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "outline-variant": "#494454",
+                      "secondary-container": "#3131c0",
+                      "surface-container-low": "#151b2d",
+                      "on-tertiary": "#640039",
+                      "on-background": "#dce1fb",
+                      "surface-container-high": "#23293c",
+                      "on-tertiary-fixed-variant": "#8c0053",
+                      "on-primary": "#3c0091",
+                      "background": "#0c1324",
+                      "secondary-fixed": "#e1e0ff",
+                      "primary-fixed": "#e9ddff",
+                      "on-tertiary-fixed": "#3e0022",
+                      "tertiary-container": "#f751a1",
+                      "surface-dim": "#0c1324",
+                      "error-container": "#93000a",
+                      "tertiary-fixed-dim": "#ffb0cd",
+                      "on-secondary-fixed": "#07006c",
+                      "tertiary-fixed": "#ffd9e4",
+                      "secondary": "#c0c1ff",
+                      "on-primary-fixed-variant": "#5516be",
+                      "surface": "#0c1324",
+                      "on-surface-variant": "#cbc3d7",
+                      "on-secondary-fixed-variant": "#2f2ebe",
+                      "primary-fixed-dim": "#d0bcff",
+                      "surface-container": "#191f31",
+                      "primary": "#d0bcff",
+                      "on-primary-fixed": "#23005c",
+                      "on-primary-container": "#340080",
+                      "secondary-fixed-dim": "#c0c1ff",
+                      "on-secondary-container": "#b0b2ff",
+                      "on-error": "#690005",
+                      "inverse-primary": "#6d3bd7",
+                      "on-secondary": "#1000a9",
+                      "inverse-surface": "#dce1fb",
+                      "surface-container-lowest": "#070d1f",
+                      "surface-bright": "#33394c",
+                      "on-surface": "#dce1fb",
+                      "error": "#ffb4ab",
+                      "tertiary": "#ffb0cd",
+                      "primary-container": "#a078ff",
+                      "surface-variant": "#2e3447",
+                      "surface-container-highest": "#2e3447",
+                      "inverse-on-surface": "#2a3043",
+                      "surface-tint": "#d0bcff",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-container": "#570032",
+                      "outline": "#958ea0"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "unit-base": "8px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "Geist"
+                      ],
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #0c1324;
+            color: #dce1fb;
+        }
+        
+        .glass-panel {
+            background-color: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-image: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+        }
+
+        .glass-input {
+            background-color: #0c1324;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #dce1fb;
+            transition: all 0.3s ease;
+        }
+
+        .glass-input:focus {
+            border-color: #d0bcff;
+            box-shadow: 0 0 0 1px #d0bcff;
+            outline: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #a078ff 0%, #6d3bd7 100%);
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-primary:hover::after {
+            opacity: 1;
+        }
+
+        .btn-glass {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #dce1fb;
+            transition: all 0.3s ease;
+        }
+
+        .btn-glass:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Custom Toggle Switch */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #d0bcff;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #6d3bd7;
+        }
+        .toggle-checkbox:checked + .toggle-label:after {
+            transform: translateX(100%);
+            border-color: white;
+        }
+
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col md:flex-row">
+<!-- Navigation Drawer (Desktop) -->
+<nav class="hidden md:flex flex-col h-full py-8 h-screen w-64 fixed left-0 top-0 bg-surface-dim border-r border-outline-variant/30 z-30">
+<div class="px-6 mb-8">
+<h1 class="text-headline-md font-headline-md text-primary-fixed">Admin Console</h1>
+</div>
+<div class="flex flex-col gap-2 px-3">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">analytics</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">group</span>
+                User Management
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">payments</span>
+                Finance
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-bold border-r-4 border-primary font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors">history_edu</span>
+                Audit Logs
+            </a>
+</div>
+</nav>
+<!-- Top App Bar (Mobile) -->
+<header class="md:hidden sticky top-0 w-full z-40 bg-surface/60 backdrop-blur-md shadow-md bg-surface-container-high/30 border-b border-white/10 flex justify-between items-center px-margin-mobile h-16">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-sm">person</span>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile font-extrabold text-primary">Unisphere</span>
+</div>
+<button class="text-on-surface-variant hover:bg-white/10 p-2 rounded-full transition-colors ripple effect on click flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-margin-mobile md:p-margin-desktop min-h-screen pb-24 md:pb-margin-desktop relative overflow-hidden">
+<!-- Atmospheric Background Elements -->
+<div class="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -z-10 pointer-events-none transform translate-x-1/3 -translate-y-1/3"></div>
+<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary-container/10 rounded-full blur-[100px] -z-10 pointer-events-none transform -translate-x-1/3 translate-y-1/3"></div>
+<div class="max-w-container-max mx-auto">
+<!-- Page Header -->
+<div class="mb-10">
+<div class="flex items-center gap-2 mb-2 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-sm">settings</span>
+<span>Settings</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-primary">Integrations</span>
+</div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-2">Daraja API Configuration</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Manage credentials and endpoints for M-PESA payment integration. Ensure these details are kept secure.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main Configuration Form -->
+<div class="lg:col-span-8 space-y-6">
+<div class="glass-panel rounded-xl p-6 md:p-8">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 pb-6 border-b border-white/10 gap-4">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-1">Environment Settings</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Toggle between Sandbox for testing and Production for live transactions.</p>
+</div>
+<!-- Environment Toggle -->
+<div class="flex items-center bg-surface-container-low rounded-full p-1 border border-white/5">
+<label class="cursor-pointer relative flex items-center">
+<input class="sr-only toggle-checkbox" id="env-toggle" type="checkbox"/>
+<div class="flex items-center justify-between w-48 h-10 bg-surface-container-highest rounded-full p-1 relative z-10 transition-colors duration-300">
+<div class="w-1/2 text-center z-20 font-label-md text-label-md text-on-surface-variant transition-colors" id="label-sandbox">Sandbox</div>
+<div class="w-1/2 text-center z-20 font-label-md text-label-md text-on-surface-variant transition-colors" id="label-production">Production</div>
+<!-- Sliding indicator -->
+<div class="absolute left-1 top-1 w-[calc(50%-4px)] h-8 bg-surface-variant rounded-full shadow-sm transition-transform duration-300 ease-in-out border border-white/10" id="toggle-indicator"></div>
+</div>
+</label>
+</div>
+</div>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Consumer Key -->
+<div class="col-span-1 md:col-span-2">
+<label class="block font-label-md text-label-md text-on-surface mb-2">Consumer Key</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">vpn_key</span>
+</div>
+<input class="glass-input block w-full pl-10 pr-10 py-3 rounded-lg font-label-md text-label-md focus:ring-primary focus:border-primary sm:text-sm" placeholder="Enter Consumer Key" type="password" value="daraja_test_key_xyz123"/>
+<button class="absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">visibility_off</span>
+</button>
+</div>
+<p class="mt-1 font-label-sm text-label-sm text-on-surface-variant">Found in your Safaricom Developer Portal app settings.</p>
+</div>
+<!-- Consumer Secret -->
+<div class="col-span-1 md:col-span-2">
+<label class="block font-label-md text-label-md text-on-surface mb-2">Consumer Secret</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">lock</span>
+</div>
+<input class="glass-input block w-full pl-10 pr-10 py-3 rounded-lg font-label-md text-label-md focus:ring-primary focus:border-primary sm:text-sm" placeholder="Enter Consumer Secret" type="password" value="daraja_test_secret_abc456"/>
+<button class="absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- Shortcode -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Business Shortcode</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">pin</span>
+</div>
+<input class="glass-input block w-full pl-10 py-3 rounded-lg font-label-md text-label-md font-mono focus:ring-primary focus:border-primary sm:text-sm" placeholder="e.g. 174379" type="text" value="174379"/>
+</div>
+</div>
+<!-- Passkey -->
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-2">Lipa Na M-PESA Passkey</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">password</span>
+</div>
+<input class="glass-input block w-full pl-10 pr-10 py-3 rounded-lg font-label-md text-label-md focus:ring-primary focus:border-primary sm:text-sm" placeholder="Enter Passkey" type="password" value="bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919"/>
+<button class="absolute inset-y-0 right-0 pr-3 flex items-center text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- Callback URL -->
+<div class="col-span-1 md:col-span-2">
+<label class="block font-label-md text-label-md text-on-surface mb-2">Callback URL (Webhook)</label>
+<div class="relative flex items-center">
+<span class="inline-flex items-center px-3 rounded-l-lg border border-r-0 border-white/10 bg-surface-container-high text-on-surface-variant font-label-md text-label-md h-[46px]">
+                                            https://
+                                        </span>
+<input class="glass-input block w-full flex-1 rounded-none rounded-r-lg py-3 font-label-md text-label-md focus:ring-primary focus:border-primary sm:text-sm h-[46px]" placeholder="yourdomain.com/callback" type="text" value="api.unisphere.edu/webhooks/daraja/callback"/>
+</div>
+<p class="mt-1 font-label-sm text-label-sm text-on-surface-variant">Endpoint must be publicly accessible and secure (HTTPS).</p>
+</div>
+</div>
+<div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row gap-4 justify-end">
+<button class="btn-glass px-6 py-3 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2" type="button">
+                                    Discard Changes
+                                </button>
+<button class="btn-primary px-6 py-3 rounded-lg font-label-md text-label-md font-bold flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm">save</span>
+                                    Save Configuration
+                                </button>
+</div>
+</form>
+</div>
+</div>
+<!-- Side Panel (Status & Actions) -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Connection Status Card -->
+<div class="glass-panel rounded-xl p-6 relative overflow-hidden">
+<!-- Decorative glow -->
+<div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/20 rounded-full blur-2xl pointer-events-none"></div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">sensors</span>
+                            Connection Status
+                        </h3>
+<div class="bg-surface-container-low rounded-lg p-4 border border-white/5 mb-6">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Current State</span>
+<span class="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-medium bg-green-500/10 text-green-400 border border-green-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                                    Connected
+                                </span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Last ping</span>
+<span class="font-label-sm text-label-sm text-on-surface">2 mins ago</span>
+</div>
+</div>
+<button class="w-full btn-glass px-4 py-3 rounded-lg font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-primary/10 hover:border-primary/30 hover:text-primary transition-all group" type="button">
+<span class="material-symbols-outlined text-lg group-hover:animate-spin">sync</span>
+                            Test Connection
+                        </button>
+</div>
+<!-- Webhook Logs Snippet -->
+<div class="glass-panel rounded-xl p-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant">terminal</span>
+                                Recent Webhooks
+                            </h3>
+<a class="text-primary hover:text-primary-fixed transition-colors font-label-sm text-label-sm flex items-center" href="#">
+                                View all <span class="material-symbols-outlined text-xs ml-1">arrow_forward</span>
+</a>
+</div>
+<div class="space-y-3">
+<!-- Log Item 1 -->
+<div class="p-3 bg-surface-container-low rounded-lg border border-white/5 flex items-start gap-3">
+<div class="mt-0.5">
+<span class="material-symbols-outlined text-green-400 text-sm">check_circle</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-sm text-label-sm text-on-surface font-mono truncate">POST /callback</span>
+<span class="text-[10px] text-on-surface-variant">10:42 AM</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">ResultCode: 0 (Success)</p>
+</div>
+</div>
+<!-- Log Item 2 -->
+<div class="p-3 bg-surface-container-low rounded-lg border border-white/5 flex items-start gap-3">
+<div class="mt-0.5">
+<span class="material-symbols-outlined text-green-400 text-sm">check_circle</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-sm text-label-sm text-on-surface font-mono truncate">POST /callback</span>
+<span class="text-[10px] text-on-surface-variant">09:15 AM</span>
+</div>
+<p class="text-xs text-on-surface-variant truncate">ResultCode: 0 (Success)</p>
+</div>
+</div>
+<!-- Log Item 3 -->
+<div class="p-3 bg-surface-container-low rounded-lg border border-white/5 flex items-start gap-3">
+<div class="mt-0.5">
+<span class="material-symbols-outlined text-error text-sm">error</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-sm text-label-sm text-on-surface font-mono truncate">POST /callback</span>
+<span class="text-[10px] text-on-surface-variant">Yesterday</span>
+</div>
+<p class="text-xs text-error truncate">ResultCode: 1032 (Cancelled)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Nav Bar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface-container-highest/80 backdrop-blur-2xl rounded-t-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(139,92,246,0.15)] shadow-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary scale-110 duration-300" href="#">
+<span class="material-symbols-outlined text-xl mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary scale-110 duration-300" href="#">
+<span class="material-symbols-outlined text-xl mb-1">storefront</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary scale-110 duration-300" href="#">
+<span class="material-symbols-outlined text-xl mb-1">bed</span>
+<span class="font-label-sm text-label-sm">Housing</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary scale-110 duration-300" href="#">
+<span class="material-symbols-outlined text-xl mb-1">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container/40 text-primary-fixed-dim rounded-xl px-3 py-1 scale-110 duration-300" href="#">
+<span class="material-symbols-outlined text-xl mb-1">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+<script>
+        // Simple toggle interaction logic for visual feedback
+        const toggle = document.getElementById('env-toggle');
+        const indicator = document.getElementById('toggle-indicator');
+        const labelSandbox = document.getElementById('label-sandbox');
+        const labelProduction = document.getElementById('label-production');
+
+        toggle.addEventListener('change', (e) => {
+            if(e.target.checked) {
+                // Production mode
+                indicator.style.transform = 'translateX(100%)';
+                labelSandbox.classList.remove('text-on-surface', 'font-bold');
+                labelSandbox.classList.add('text-on-surface-variant');
+                labelProduction.classList.remove('text-on-surface-variant');
+                labelProduction.classList.add('text-on-surface', 'font-bold');
+            } else {
+                // Sandbox mode
+                indicator.style.transform = 'translateX(0)';
+                labelProduction.classList.remove('text-on-surface', 'font-bold');
+                labelProduction.classList.add('text-on-surface-variant');
+                labelSandbox.classList.remove('text-on-surface-variant');
+                labelSandbox.classList.add('text-on-surface', 'font-bold');
+            }
+        });
+
+        // Initialize state
+        labelSandbox.classList.add('text-on-surface', 'font-bold');
+    </script>
+</body></html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Portal - Unisphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary": "#1000a9",
+                      "tertiary": "#ffb0cd",
+                      "tertiary-fixed": "#ffd9e4",
+                      "tertiary-fixed-dim": "#ffb0cd",
+                      "on-error": "#690005",
+                      "on-background": "#dce1fb",
+                      "secondary": "#c0c1ff",
+                      "on-surface-variant": "#cbc3d7",
+                      "secondary-container": "#3131c0",
+                      "on-primary-fixed-variant": "#5516be",
+                      "on-primary-fixed": "#23005c",
+                      "primary": "#d0bcff",
+                      "outline-variant": "#494454",
+                      "on-surface": "#dce1fb",
+                      "on-secondary-fixed-variant": "#2f2ebe",
+                      "secondary-fixed": "#e1e0ff",
+                      "primary-container": "#a078ff",
+                      "primary-fixed-dim": "#d0bcff",
+                      "on-tertiary": "#640039",
+                      "on-primary-container": "#340080",
+                      "secondary-fixed-dim": "#c0c1ff",
+                      "on-tertiary-fixed-variant": "#8c0053",
+                      "surface-container-low": "#151b2d",
+                      "inverse-primary": "#6d3bd7",
+                      "on-tertiary-fixed": "#3e0022",
+                      "error-container": "#93000a",
+                      "error": "#ffb4ab",
+                      "tertiary-container": "#f751a1",
+                      "surface-bright": "#33394c",
+                      "surface-container-high": "#23293c",
+                      "surface": "#0c1324",
+                      "on-secondary-container": "#b0b2ff",
+                      "surface-container": "#191f31",
+                      "surface-variant": "#2e3447",
+                      "surface-container-highest": "#2e3447",
+                      "surface-tint": "#d0bcff",
+                      "on-secondary-fixed": "#07006c",
+                      "primary-fixed": "#e9ddff",
+                      "background": "#0c1324",
+                      "surface-dim": "#0c1324",
+                      "on-error-container": "#ffdad6",
+                      "outline": "#958ea0",
+                      "on-primary": "#3c0091",
+                      "inverse-on-surface": "#2a3043",
+                      "surface-container-lowest": "#070d1f",
+                      "on-tertiary-container": "#570032",
+                      "inverse-surface": "#dce1fb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit-base": "8px",
+                      "margin-mobile": "16px",
+                      "gutter": "24px",
+                      "margin-desktop": "40px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "Geist"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+          .glass-card {
+              background: rgba(15, 23, 42, 0.4);
+              backdrop-filter: blur(12px);
+              -webkit-backdrop-filter: blur(12px);
+              border: 1px solid rgba(255, 255, 255, 0.1);
+          }
+          .glass-card-glow {
+              box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+          }
+          .table-row-hover:hover {
+              background: rgba(255, 255, 255, 0.05);
+          }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col md:flex-row antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Navigation Drawer (SideNav) -->
+<nav class="bg-surface-dim border-r border-outline-variant/30 h-screen w-64 fixed left-0 top-0 hidden md:flex flex-col py-8 z-40 transition-all">
+<div class="px-6 mb-8">
+<span class="text-headline-md font-headline-md text-primary-fixed block tracking-tight">Admin Console</span>
+</div>
+<div class="flex flex-col gap-1 px-4 flex-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-bold border-r-4 border-primary shadow-[0_0_15px_rgba(139,92,246,0.2)]" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md">User Management</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-md text-label-md">Finance</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="gavel">gavel</span>
+<span class="font-label-md text-label-md">Moderation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-highest transition-colors mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="history_edu">history_edu</span>
+<span class="font-label-md text-label-md">Audit Logs</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- Top App Bar (Small) for Context/Breadcrumbs -->
+<header class="bg-surface/60 backdrop-blur-md sticky top-0 w-full z-30 shadow-md border-b border-white/10 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Admin</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="font-label-md text-label-md text-primary-fixed font-semibold">User Management</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:bg-white/10 p-2 rounded-full transition-colors ripple">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of an administrator in a sleek, dimly lit server room with glowing violet and blue server racks in the background. High contrast, modern tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6OWLdLIcWcwZL71lzID9TwsAErhwHUPzEt_bJwTYhwMmZH5k5qecsEIUCVNH82eeeo-Wl04rlSW6Eq0wU_leSxJWw-TbtpOZSn1e22p5ATxh3iBKEwrqbjpqefgTccpccabvms_yGwF4cymKWplKtvLVler4KeiizFQxs-FNDw7OZInM5ql0UQ4TbhrnXrI_u-HXUb3TUiTGUjmTMavNk0t2qQIFHj-zJyR3JraIJzZNgOn5gkT4LqKo0MtgSOZAmarePlBZSnq_4"/>
+</div>
+</div>
+</header>
+<!-- Scrollable Content Canvas -->
+<div class="p-margin-mobile md:p-gutter max-w-container-max mx-auto w-full flex flex-col gap-gutter">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+<div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg font-bold text-on-surface tracking-tight">Admin Users</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Manage platform access, roles, and security statuses.</p>
+</div>
+<div class="flex gap-3">
+<button class="glass-card px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface flex items-center gap-2 hover:bg-white/5 transition-colors border border-white/10">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                        Filter
+                    </button>
+<button class="bg-gradient-to-r from-primary to-inverse-primary text-white px-4 py-2 rounded-lg font-label-md text-label-md font-semibold flex items-center gap-2 shadow-[0_0_15px_rgba(139,92,246,0.3)] hover:shadow-[0_0_25px_rgba(139,92,246,0.5)] transition-all">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        New User
+                    </button>
+</div>
+</div>
+<!-- Bento Grid Layout for Admin Panels -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+<!-- Main Table Span: User Management -->
+<div class="xl:col-span-2 glass-card rounded-xl p-0 flex flex-col overflow-hidden relative glass-card-glow">
+<div class="p-4 border-b border-white/10 flex justify-between items-center bg-surface-container/50">
+<h2 class="font-headline-md text-headline-md text-on-surface">Active Roster</h2>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="bg-surface-dim border border-outline-variant/50 focus:border-primary rounded-lg pl-10 pr-4 py-1.5 font-body-md text-body-md text-on-surface w-64 placeholder:text-on-surface-variant/50 transition-colors outline-none focus:shadow-[0_0_10px_rgba(139,92,246,0.2)]" placeholder="Search ID, Email, Role..." type="text"/>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-white/10 bg-surface-container-low/50">
+<th class="p-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">User</th>
+<th class="p-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Role</th>
+<th class="p-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Status</th>
+<th class="p-4 font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold text-right">Last Login</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<tr class="border-b border-white/5 table-row-hover cursor-pointer transition-colors">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-sm">
+                                                JD
+                                            </div>
+<div>
+<div class="text-on-surface font-medium">John Doe</div>
+<div class="text-on-surface-variant text-sm font-label-sm">id_928374a</div>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="px-2 py-1 rounded-md bg-secondary-container/30 text-secondary-fixed text-xs font-label-sm border border-secondary/20">Super Admin</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_rgba(255,176,205,0.6)]"></div>
+<span class="text-on-surface-variant">Active</span>
+</div>
+</td>
+<td class="p-4 text-right text-on-surface-variant font-label-sm">2 mins ago</td>
+</tr>
+<tr class="border-b border-white/5 table-row-hover cursor-pointer transition-colors">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-sm">
+                                                AS
+                                            </div>
+<div>
+<div class="text-on-surface font-medium">Alice Smith</div>
+<div class="text-on-surface-variant text-sm font-label-sm">id_102938b</div>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="px-2 py-1 rounded-md bg-surface-container-high text-on-surface-variant text-xs font-label-sm border border-outline-variant/30">Moderator</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-error shadow-[0_0_8px_rgba(255,180,171,0.6)]"></div>
+<span class="text-error">Suspended</span>
+</div>
+</td>
+<td class="p-4 text-right text-on-surface-variant font-label-sm">2 days ago</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 mt-auto border-t border-white/10 flex justify-between items-center text-sm text-on-surface-variant">
+<span>Showing 1-10 of 1,204</span>
+<div class="flex gap-2">
+<button class="p-1 hover:bg-white/10 rounded"><span class="material-symbols-outlined text-[20px]">chevron_left</span></button>
+<button class="p-1 hover:bg-white/10 rounded"><span class="material-symbols-outlined text-[20px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- Side Panels Column -->
+<div class="flex flex-col gap-gutter">
+<!-- Moderation Queue Mini -->
+<div class="glass-card rounded-xl p-5 flex flex-col">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-md text-[20px] font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-error" data-icon="flag">flag</span>
+                                Flagged Items
+                            </h3>
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded text-xs font-bold">12</span>
+</div>
+<div class="flex flex-col gap-3">
+<div class="bg-surface-container/40 p-3 rounded-lg border border-white/5 hover:border-error/30 transition-colors cursor-pointer">
+<div class="flex justify-between items-start mb-1">
+<span class="text-sm font-medium text-on-surface">Marketplace Listing</span>
+<span class="text-xs text-on-surface-variant">1h ago</span>
+</div>
+<p class="text-xs text-on-surface-variant line-clamp-1 mb-2">Reported for inappropriate content in housing sublet...</p>
+<div class="flex gap-2 mt-2">
+<button class="text-xs text-error hover:underline">Review</button>
+<button class="text-xs text-on-surface-variant hover:text-on-surface transition-colors">Dismiss</button>
+</div>
+</div>
+</div>
+<button class="mt-4 text-sm text-primary hover:text-primary-fixed-dim transition-colors text-center w-full font-label-md">View Full Queue</button>
+</div>
+<!-- Escrow Ledger Mini -->
+<div class="glass-card rounded-xl p-5 flex flex-col relative overflow-hidden">
+<!-- Subtle background gradient hint -->
+<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-secondary/10 rounded-full blur-2xl"></div>
+<div class="flex justify-between items-center mb-4 relative z-10">
+<h3 class="font-headline-md text-[20px] font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="account_balance">account_balance</span>
+                                Escrow Alerts
+                            </h3>
+</div>
+<div class="flex flex-col gap-3 relative z-10">
+<div class="flex justify-between items-center py-2 border-b border-white/5">
+<div>
+<div class="text-sm font-medium text-on-surface">Tx_8829A (Dispute)</div>
+<div class="text-xs text-on-surface-variant">Buyer vs Seller</div>
+</div>
+<span class="font-label-sm text-secondary font-mono">$1,250.00</span>
+</div>
+</div>
+<button class="mt-4 text-sm text-secondary hover:text-secondary-fixed transition-colors text-center w-full font-label-md relative z-10">Manage Ledger</button>
+</div>
+</div>
+</div>
+<!-- System Logs (Wide Bottom Panel) -->
+<div class="glass-card rounded-xl p-5 mt-4 border border-outline-variant/20">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline-md text-[20px] font-semibold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="terminal">terminal</span>
+                        System Error Tracing
+                    </h3>
+<div class="flex items-center gap-2 text-xs">
+<span class="flex items-center gap-1 text-tertiary"><div class="w-1.5 h-1.5 rounded-full bg-tertiary"></div> Live</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg font-label-sm text-label-sm font-mono text-on-surface-variant h-40 overflow-y-auto border border-white/5 flex flex-col gap-1 relative">
+<!-- Scanline effect for terminal feel -->
+<div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] pointer-events-none opacity-20"></div>
+<div class="flex gap-3"><span class="text-secondary">[10:42:01]</span> <span class="text-tertiary">WARN</span> <span>API rate limit approaching for service: housing_index</span></div>
+<div class="flex gap-3"><span class="text-secondary">[10:41:55]</span> <span class="text-outline">INFO</span> <span>User id_928374a authenticated successfully via SSO</span></div>
+<div class="flex gap-3"><span class="text-secondary">[10:40:12]</span> <span class="text-error">ERR!</span> <span>Database connection timeout on shard 03. Retrying...</span></div>
+<div class="flex gap-3"><span class="text-secondary">[10:40:15]</span> <span class="text-outline">INFO</span> <span>Database connection restored.</span></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile Only) - Semantic rendering logic dictates skipping it as this is a deep admin desk, but following standard layout rules to provide it if mobile fallback is needed for main destinations, however Admin typically stays on Desktop. We will suppress it based on the "Destination Rule" (Admin is not a primary B2C ecosystem destination). -->
+</body></html>

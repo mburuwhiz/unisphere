@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - Unisphere</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#c0c1ff",
+                      "primary-container": "#a078ff",
+                      "secondary-fixed": "#e1e0ff",
+                      "on-tertiary": "#640039",
+                      "surface-bright": "#33394c",
+                      "surface-dim": "#0c1324",
+                      "on-background": "#dce1fb",
+                      "on-secondary-container": "#b0b2ff",
+                      "tertiary-fixed": "#ffd9e4",
+                      "surface-container-high": "#23293c",
+                      "error-container": "#93000a",
+                      "inverse-on-surface": "#2a3043",
+                      "on-surface-variant": "#cbc3d7",
+                      "surface-container-highest": "#2e3447",
+                      "on-secondary": "#1000a9",
+                      "outline": "#958ea0",
+                      "outline-variant": "#494454",
+                      "primary-fixed-dim": "#d0bcff",
+                      "surface-variant": "#2e3447",
+                      "surface-container-lowest": "#070d1f",
+                      "inverse-primary": "#6d3bd7",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed": "#07006c",
+                      "on-surface": "#dce1fb",
+                      "on-primary": "#3c0091",
+                      "tertiary": "#ffb0cd",
+                      "error": "#ffb4ab",
+                      "tertiary-fixed-dim": "#ffb0cd",
+                      "primary-fixed": "#e9ddff",
+                      "background": "#0c1324",
+                      "on-primary-fixed-variant": "#5516be",
+                      "on-tertiary-fixed-variant": "#8c0053",
+                      "on-primary-container": "#340080",
+                      "primary": "#d0bcff",
+                      "surface-container-low": "#151b2d",
+                      "on-error": "#690005",
+                      "surface-container": "#191f31",
+                      "on-primary-fixed": "#23005c",
+                      "on-tertiary-fixed": "#3e0022",
+                      "inverse-surface": "#dce1fb",
+                      "surface-tint": "#d0bcff",
+                      "on-secondary-fixed-variant": "#2f2ebe",
+                      "tertiary-container": "#f751a1",
+                      "secondary-container": "#3131c0",
+                      "on-tertiary-container": "#570032",
+                      "surface": "#0c1324",
+                      "secondary-fixed-dim": "#c0c1ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "margin-desktop": "40px",
+                      "margin-mobile": "16px",
+                      "unit-base": "8px"
+              },
+              "fontFamily": {
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Geist"
+                      ],
+                      "label-md": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .glass-card {
+            background-color: rgba(15, 23, 42, 0.4); /* Slate 900 at 40% */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-image: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
+        }
+        .btn-glow {
+            position: relative;
+        }
+        .btn-glow::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: rgba(139, 92, 246, 0.3);
+            filter: blur(20px);
+            z-index: -1;
+            border-radius: inherit;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .btn-glow:hover::after {
+            opacity: 1;
+        }
+        .bg-mesh {
+            background-color: #0c1324;
+            background-image: 
+                radial-gradient(at 40% 20%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 0%, rgba(160, 120, 255, 0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
+            background-size: 100% 100%;
+            background-attachment: fixed;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-mesh text-on-surface min-h-screen flex items-center justify-center font-sans antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- EJS Layout Declaration -->
+<!-- <%- contentFor('layout') %> layout_public -->
+<!-- Main Container -->
+<main class="w-full max-w-md px-margin-mobile md:px-0 relative z-10">
+<!-- Glassmorphic Login Card -->
+<div class="glass-card rounded-[1.5rem] p-8 md:p-10 shadow-2xl overflow-hidden relative">
+<!-- Subtle internal glow for depth -->
+<div class="absolute -top-20 -right-20 w-40 h-40 bg-primary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Header -->
+<div class="text-center mb-8">
+<div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-surface-container-high border border-white/10 mb-4">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">language</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight mb-2">Unisphere</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Access the ecosystem</p>
+</div>
+<!-- Form -->
+<form action="#" class="space-y-5" method="POST">
+<!-- Email Input -->
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-surface block" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant text-[20px]">mail</span>
+<input class="w-full bg-slate-950/80 border border-outline-variant/30 rounded-lg py-3 pl-10 pr-4 font-body-md text-body-md text-on-surface placeholder:text-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="email" name="email" placeholder="student@university.edu" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface block" for="password">Password</label>
+<a class="font-label-sm text-label-sm text-primary hover:text-primary-fixed transition-colors" href="#">Forgot Password?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant text-[20px]">lock</span>
+<input class="w-full bg-slate-950/80 border border-outline-variant/30 rounded-lg py-3 pl-10 pr-10 font-body-md text-body-md text-on-surface placeholder:text-outline-variant/60 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Primary Login Button -->
+<button class="w-full relative group btn-glow mt-6" type="submit">
+<div class="absolute inset-0 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-lg blur-[2px] opacity-70 group-hover:opacity-100 transition-opacity"></div>
+<div class="relative bg-gradient-to-r from-violet-500 to-indigo-500 text-white font-label-md text-label-md py-3.5 px-4 rounded-lg flex items-center justify-center gap-2 border border-white/20">
+                        Sign In
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</div>
+</button>
+</form>
+<!-- Divider -->
+<div class="flex items-center gap-4 my-6">
+<div class="h-px bg-outline-variant/30 flex-1"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">or continue with</span>
+<div class="h-px bg-outline-variant/30 flex-1"></div>
+</div>
+<!-- Google OAuth Button -->
+<button class="w-full bg-surface-container-high/50 hover:bg-surface-container-high border border-outline-variant/30 hover:border-white/20 transition-all rounded-lg py-3 px-4 flex items-center justify-center gap-3 backdrop-blur-md" type="button">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="font-label-md text-label-md text-on-surface">Google Workspace</span>
+</button>
+<!-- Sign Up Link -->
+<p class="mt-8 text-center font-body-md text-body-md text-on-surface-variant text-sm">
+                Don't have an account? 
+                <a class="text-primary hover:text-primary-fixed transition-colors font-semibold" href="#">Request Access</a>
+</p>
+</div>
+</main>
+<!-- Background Decorative Elements -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute -top-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-primary-container/5 blur-[120px]"></div>
+<div class="absolute top-[60%] -left-[10%] w-[40%] h-[40%] rounded-full bg-secondary/5 blur-[100px]"></div>
+</div>
+</body></html>

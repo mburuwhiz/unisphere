@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Unisphere Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#c0c1ff",
+                        "primary-container": "#a078ff",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-tertiary": "#640039",
+                        "surface-bright": "#33394c",
+                        "surface-dim": "#0c1324",
+                        "on-background": "#dce1fb",
+                        "on-secondary-container": "#b0b2ff",
+                        "tertiary-fixed": "#ffd9e4",
+                        "surface-container-high": "#23293c",
+                        "error-container": "#93000a",
+                        "inverse-on-surface": "#2a3043",
+                        "on-surface-variant": "#cbc3d7",
+                        "surface-container-highest": "#2e3447",
+                        "on-secondary": "#1000a9",
+                        "outline": "#958ea0",
+                        "outline-variant": "#494454",
+                        "primary-fixed-dim": "#d0bcff",
+                        "surface-variant": "#2e3447",
+                        "surface-container-lowest": "#070d1f",
+                        "inverse-primary": "#6d3bd7",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed": "#07006c",
+                        "on-surface": "#dce1fb",
+                        "on-primary": "#3c0091",
+                        "tertiary": "#ffb0cd",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed-dim": "#ffb0cd",
+                        "primary-fixed": "#e9ddff",
+                        "background": "#0c1324",
+                        "on-primary-fixed-variant": "#5516be",
+                        "on-tertiary-fixed-variant": "#8c0053",
+                        "on-primary-container": "#340080",
+                        "primary": "#d0bcff",
+                        "surface-container-low": "#151b2d",
+                        "on-error": "#690005",
+                        "surface-container": "#191f31",
+                        "on-primary-fixed": "#23005c",
+                        "on-tertiary-fixed": "#3e0022",
+                        "inverse-surface": "#dce1fb",
+                        "surface-tint": "#d0bcff",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "tertiary-container": "#f751a1",
+                        "secondary-container": "#3131c0",
+                        "on-tertiary-container": "#570032",
+                        "surface": "#0c1324",
+                        "secondary-fixed-dim": "#c0c1ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "margin-desktop": "40px",
+                        "margin-mobile": "16px",
+                        "unit-base": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["Inter", "sans-serif"],
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Geist", "sans-serif"],
+                        "label-md": ["Geist", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Geist:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel {
+            background-color: rgba(12, 19, 36, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-image: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #8B5CF6 0%, #6d3bd7 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.3) inset;
+        }
+        .bloom-shadow {
+            box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-sans min-h-screen flex flex-col relative overflow-x-hidden">
+<!-- Ambient Background Lighting -->
+<div class="fixed top-0 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+<div class="fixed bottom-0 right-1/4 w-[400px] h-[400px] bg-tertiary/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+<!-- TopAppBar Mobile -->
+<header class="sticky top-0 w-full z-40 bg-surface/60 backdrop-blur-md bg-surface-container-high/30 border-b border-white/10 shadow-md md:hidden flex justify-between items-center px-margin-mobile h-16 ripple effect on click hover:bg-white/10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-white/20">
+<img class="w-full h-full object-cover" data-alt="A close up, cinematic portrait of a young college student with a diverse background, lit by soft rim lighting in a moody, dark studio setting. The styling is modern and sleek, focusing on the face with a slight, confident smile. Deep shadows contrast with subtle violet and blue highlights, creating a premium glassmorphism-adjacent aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCubwKp3bbIT1mVnK15fOMmWcrsTMSSk7xZOuHSHDdrfLjxMFJNttr23pqsOwJNCy6-VOSvBVlkDF4vtvDM9PDTEAj_jRENTDFdIfY77oWKoa90W3MaC_FSR1DlTqmQlOmCwY4D6X6cDo6Tm7ywACZ0yp7sPlVj5HN4Gef1FOsqQ7QGVk7AMS6SrqgI48DFj3m1Nf1L6QefhFqcMtDyllZx-SfrwL7OwCcSGtzNc3xUt3vZJwpBXR05S_pzhsOrgyhr0CXAS8lolBsj"/>
+</div>
+<span class="font-headline-md text-headline-md font-extrabold text-primary">Unisphere</span>
+</div>
+<div class="text-primary-fixed cursor-pointer">
+<span class="material-symbols-outlined">notifications</span>
+</div>
+</header>
+<div class="flex flex-1 md:flex-row relative">
+<!-- Navigation Drawer (Desktop) -->
+<nav class="hidden md:flex flex-col h-screen py-8 bg-surface-dim h-screen w-64 fixed left-0 top-0 border-r border-outline-variant/30 slide-in transition-all z-40">
+<div class="px-6 mb-8">
+<span class="text-headline-md font-headline-md text-primary-fixed">Unisphere</span>
+</div>
+<div class="flex-1 flex flex-col gap-2 px-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary-container font-bold border-r-4 border-primary hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">storefront</span>
+                    Market
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">bed</span>
+                    Housing
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+                    Wallet
+                </a>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto w-full pb-32 md:pb-12">
+<div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-2">Student Market</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Buy, sell, and trade within your campus community.</p>
+</div>
+<!-- Search & Filters -->
+<div class="w-full md:w-auto flex flex-col sm:flex-row gap-3">
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant/30 rounded-lg py-2 pl-10 pr-4 text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all font-body-md text-body-md" placeholder="Search items..." type="text"/>
+</div>
+<button class="glass-panel flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-on-surface hover:bg-white/10 transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined">filter_list</span>
+                        Filters
+                    </button>
+</div>
+</div>
+<!-- Filter Chips -->
+<div class="flex gap-2 overflow-x-auto pb-4 mb-6 scrollbar-hide">
+<button class="bg-primary/20 border border-primary/50 text-primary px-4 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap">All Categories</button>
+<button class="glass-panel text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap hover:text-on-surface">Textbooks</button>
+<button class="glass-panel text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap hover:text-on-surface">Electronics</button>
+<button class="glass-panel text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap hover:text-on-surface">Furniture</button>
+<button class="glass-panel text-on-surface-variant px-4 py-1.5 rounded-full font-label-sm text-label-sm whitespace-nowrap hover:text-on-surface">Clothing</button>
+</div>
+<!-- Market Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-gutter">
+<!-- Card 1 -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col group cursor-pointer hover:-translate-y-1 transition-transform duration-300">
+<div class="relative aspect-square overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" data-alt="A highly stylized product shot of a sleek, modern tablet computer displaying a complex data dashboard. The tablet rests on a dark, reflective surface. The lighting is cinematic, with soft neon violet and blue accents highlighting the edges of the device, creating a premium tech aesthetic suitable for a high-end dark mode marketplace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyAisdR7ma2i_8hJ8xnRlS2Xu5Bxp58zlrb4DgN8cgbxuchLSbMhYYqZ7hpyrcqDoH0S4CltRbxYqVU6yQLM7Y-HrlflYvRPBQfzwJ8Cbu2M1o1S7VVUFKRQ3gqEAtCvtr-gG-ssEUHaIqCYvjS51QtV0ZEe41GBtIXShV3mnQbftuk5vmH9OK21Fo0R6qnki8N2HHi9jKLRa3Vpi2CTbyt_TZlYpzhdpO3E8_XyPGjJw2dErd3uLX7aj2aTR4j3ObQHc81q1J8T_5"/>
+<div class="absolute top-2 right-2 glass-panel px-2 py-1 rounded-md font-label-sm text-label-sm font-bold text-primary">
+                            $250
+                        </div>
+<div class="absolute bottom-2 left-2 flex items-center gap-1 bg-surface-dim/80 backdrop-blur-sm px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px] text-tertiary">verified_user</span>
+<span class="font-label-sm text-label-sm text-on-surface text-[10px]">Daraja Escrow</span>
+</div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Electronics</span>
+<h3 class="font-body-md text-body-md text-on-surface font-semibold line-clamp-1">iPad Pro 2021</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1">Like new, includes Apple Pencil</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col group cursor-pointer hover:-translate-y-1 transition-transform duration-300">
+<div class="relative aspect-square overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" data-alt="A detailed still life of a thick, heavy academic textbook lying open on a dark wood desk. The lighting is moody and focused, with a single warm desk lamp casting long shadows across the pages. The environment feels intellectual and quiet, fitting a premium academic platform in dark mode." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY7QZ7DfDf2qVGYB4k59llu1gXW9CrJe5DpzbSZARFqebXyA_b0EC8TmywF4GpZaqyGp2a-NdNjWRMigebdEGFjZMnP0Ts7mMM9OE-Ct5tRHIhlzLumCT2QUKtPydPAakcHzCVSbndknfr4CME3RAIg5MI9FobBIlLSqSzQoOBzQtxbkUgCty0F2jQ1Xt0azpwuLo7N3ye8Ef1i6qRsk5W1dg9li8k9My0juRB2jCkkBlCNIVVJEoD7x3iMfFhuf8XrgJ8TGpqvlCS"/>
+<div class="absolute top-2 right-2 glass-panel px-2 py-1 rounded-md font-label-sm text-label-sm font-bold text-primary">
+                            $45
+                        </div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Textbooks</span>
+<h3 class="font-body-md text-body-md text-on-surface font-semibold line-clamp-1">Calculus Early Transcendentals</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1">Good condition, minor highlighting</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col group cursor-pointer hover:-translate-y-1 transition-transform duration-300">
+<div class="relative aspect-square overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" data-alt="A minimalist, modern ergonomic office chair set against an abstract dark background. The lighting emphasizes the sleek lines and premium materials of the chair, with subtle gradient backlighting in deep violet tones that give it a floating, high-end appearance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ1_wsBRYb5wnPRU2ehiN4RHgtSBg8Xhs2KTPs3VVBhKinvhjvRYbdj3F7MXFz8lB0sBoqquVysjkvcRjlLY211usTK0prg7JXPwhQFXORHoBpKvi3gShDyaB_JuWpw5rYulWEbVJ7_qsm0HzkpUEqmjbMiIEPPtAakku9DtN6f5D9vlgBz-ofLS3xGQQjdvKBr380uCIXi6MVqbTIQk-1_Ixp02IajONVVkb7HD-UjrgCS1sB73YyD4qbO-Qde23Os4h0rkME1QiJ"/>
+<div class="absolute top-2 right-2 glass-panel px-2 py-1 rounded-md font-label-sm text-label-sm font-bold text-primary">
+                            $80
+                        </div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Furniture</span>
+<h3 class="font-body-md text-body-md text-on-surface font-semibold line-clamp-1">Ergonomic Office Chair</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1">Used for 1 semester, great condition</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="glass-panel rounded-xl overflow-hidden flex flex-col group cursor-pointer hover:-translate-y-1 transition-transform duration-300">
+<div class="relative aspect-square overflow-hidden bg-surface-container-lowest">
+<img class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" data-alt="A stylish, dark-toned photograph of a high-end pair of noise-canceling headphones resting on a textured granite surface. The lighting is dramatic, with cool blue and purple rim lights outlining the headphones, creating a sense of sophisticated audio technology in a premium dark setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZCthGTv5hrrdIBkLcrs-f_PCaMDuQkMh7hefrMzhKFpREr7B6tEkp_v6_X-8ukSRcOZ4hnZPZCSJ5XbUVU2DZm2tnH2H-unlq33jhpGi7bBHyXrlIIyveJepFF4LFegxk2rndzGhaZTxqHmui6mcKSrxfcaCo74419a2GKKPxZMGA8yCCEf46_OiVWGC8LaAOJhA7amtGY_mP2DtK3FwLVOAYZXwK7CafBuwS7bpu7Boy0Cfxcpsk1WkdewCEne30vf4TterexsyI"/>
+<div class="absolute top-2 right-2 glass-panel px-2 py-1 rounded-md font-label-sm text-label-sm font-bold text-primary">
+                            $120
+                        </div>
+<div class="absolute bottom-2 left-2 flex items-center gap-1 bg-surface-dim/80 backdrop-blur-sm px-2 py-1 rounded-md">
+<span class="material-symbols-outlined text-[14px] text-tertiary">verified_user</span>
+<span class="font-label-sm text-label-sm text-on-surface text-[10px]">Daraja Escrow</span>
+</div>
+</div>
+<div class="p-3 flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Electronics</span>
+<h3 class="font-body-md text-body-md text-on-surface font-semibold line-clamp-1">Sony WH-1000XM4</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant line-clamp-1">Barely used, original box</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-4 md:bottom-8 md:right-8 w-14 h-14 rounded-full btn-primary bloom-shadow text-white flex items-center justify-center z-40 hover:scale-105 transition-transform">
+<span class="material-symbols-outlined">add</span>
+</button>
+<!-- BottomNavBar Mobile -->
+<nav class="fixed bottom-0 w-full rounded-t-xl bg-surface-container-highest/80 backdrop-blur-2xl border-t border-white/10 shadow-[0_-4px_20px_rgba(139,92,246,0.15)] shadow-xl fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary scale-110 duration-300" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container/40 text-primary-fixed-dim rounded-xl px-3 py-1 hover:text-primary scale-110 duration-300" href="#">
+<span class="material-symbols-outlined mb-1">storefront</span>
+<span class="font-label-sm text-label-sm">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary scale-110 duration-300" href="#">
+<span class="material-symbols-outlined mb-1">bed</span>
+<span class="font-label-sm text-label-sm">Housing</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary scale-110 duration-300" href="#">
+<span class="material-symbols-outlined mb-1">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary scale-110 duration-300" href="#">
+<span class="material-symbols-outlined mb-1">chat_bubble</span>
+<span class="font-label-sm text-label-sm">Chat</span>
+</a>
+</nav>
+</body></html>

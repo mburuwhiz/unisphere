@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Unisphere Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#c0c1ff",
+                      "primary-container": "#a078ff",
+                      "secondary-fixed": "#e1e0ff",
+                      "on-tertiary": "#640039",
+                      "surface-bright": "#33394c",
+                      "surface-dim": "#0c1324",
+                      "on-background": "#dce1fb",
+                      "on-secondary-container": "#b0b2ff",
+                      "tertiary-fixed": "#ffd9e4",
+                      "surface-container-high": "#23293c",
+                      "error-container": "#93000a",
+                      "inverse-on-surface": "#2a3043",
+                      "on-surface-variant": "#cbc3d7",
+                      "surface-container-highest": "#2e3447",
+                      "on-secondary": "#1000a9",
+                      "outline": "#958ea0",
+                      "outline-variant": "#494454",
+                      "primary-fixed-dim": "#d0bcff",
+                      "surface-variant": "#2e3447",
+                      "surface-container-lowest": "#070d1f",
+                      "inverse-primary": "#6d3bd7",
+                      "on-error-container": "#ffdad6",
+                      "on-secondary-fixed": "#07006c",
+                      "on-surface": "#dce1fb",
+                      "on-primary": "#3c0091",
+                      "tertiary": "#ffb0cd",
+                      "error": "#ffb4ab",
+                      "tertiary-fixed-dim": "#ffb0cd",
+                      "primary-fixed": "#e9ddff",
+                      "background": "#0c1324",
+                      "on-primary-fixed-variant": "#5516be",
+                      "on-tertiary-fixed-variant": "#8c0053",
+                      "on-primary-container": "#340080",
+                      "primary": "#d0bcff",
+                      "surface-container-low": "#151b2d",
+                      "on-error": "#690005",
+                      "surface-container": "#191f31",
+                      "on-primary-fixed": "#23005c",
+                      "on-tertiary-fixed": "#3e0022",
+                      "inverse-surface": "#dce1fb",
+                      "surface-tint": "#d0bcff",
+                      "on-secondary-fixed-variant": "#2f2ebe",
+                      "tertiary-container": "#f751a1",
+                      "secondary-container": "#3131c0",
+                      "on-tertiary-container": "#570032",
+                      "surface": "#0c1324",
+                      "secondary-fixed-dim": "#c0c1ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "margin-desktop": "40px",
+                      "margin-mobile": "16px",
+                      "unit-base": "8px"
+              },
+              "fontFamily": {
+                      "headline-xl": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Geist"
+                      ],
+                      "label-md": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "headline-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .glass-card {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .bloom-shadow {
+            box-shadow: 0 0 20px 0 rgba(139, 92, 246, 0.3);
+        }
+      </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col antialiased">
+<!-- TopAppBar Mobile -->
+<header class="md:hidden flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface/60 backdrop-blur-md sticky top-0 w-full z-40 bg-surface-container-high/30 border-b border-white/10 shadow-md">
+<div class="flex items-center cursor-pointer active:scale-95 transition-transform">
+<img alt="User profile photo" class="w-8 h-8 rounded-full border border-primary/30 mr-3" data-alt="A small, circular profile picture of a young university student with short dark hair, smiling warmly in soft, natural lighting. The background is a slightly blurred, modern campus library setting. High-quality portrait photography, professional lighting, warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAqmdyoaWRjgKDvnIUb4m1C_oRdcpEZOG15jyTUJP66YkMfVU62Z-L5FJqnYz_SAGOimu9ixA-tfhdqCD2y9xSAfdBTIHkXYplDUuhMZKv8edVbZXRkts3FR0ml-U8j4CrUdAUAAKMKb7Y8xvpxFPYDTgKqPcH5NeHwXj6bJ9WCgYvmi7mcZHK0Be8iDmFpl6JEZr-imSPwIHsQzPZVOFvP7VvzPmzZWGmZ58RksG3xsIhIRfiQJD6YDk9UsF8RxF_HzdevwwcoxGH"/>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary">Unisphere</h1>
+</div>
+<button class="relative p-2 rounded-full hover:bg-white/10 text-primary transition-colors ripple effect on click">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2.5 h-2.5 bg-error rounded-full bloom-shadow"></span>
+</button>
+</header>
+<!-- NavigationDrawer Desktop -->
+<nav class="hidden md:flex flex-col h-full py-8 bg-surface-dim h-screen w-64 fixed left-0 top-0 border-r border-outline-variant/30 slide-in transition-all">
+<div class="px-6 mb-12">
+<h1 class="text-headline-md font-headline-md text-primary-fixed tracking-tight">Admin Console</h1>
+</div>
+<ul class="flex-1 space-y-2">
+<li>
+<a class="flex items-center px-6 py-3 bg-primary-container text-on-primary-container font-bold border-r-4 border-primary font-label-md text-label-md hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined mr-4">dashboard</span>
+                    Dashboard
+                </a>
+</li>
+<li>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined mr-4">analytics</span>
+                    Analytics
+                </a>
+</li>
+<li>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined mr-4">group</span>
+                    User Management
+                </a>
+</li>
+<li>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined mr-4">payments</span>
+                    Finance
+                </a>
+</li>
+<li>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined mr-4">settings</span>
+                    Settings
+                </a>
+</li>
+<li>
+<a class="flex items-center px-6 py-3 text-on-surface-variant hover:bg-surface-container-high font-label-md text-label-md hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined mr-4">history_edu</span>
+                    Audit Logs
+                </a>
+</li>
+</ul>
+<div class="px-6 mt-auto">
+<div class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low border border-white/5">
+<img alt="User Profile" class="w-10 h-10 rounded-full" data-alt="A small, circular profile picture of a young university student with short dark hair, smiling warmly in soft, natural lighting. The background is a slightly blurred, modern campus library setting. High-quality portrait photography, professional lighting, warm tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuaZjnY2dj9cXBOuj6qdcz5yPYYEDgPmzUlwIDUMAvef8yMFOo5p3HYDkI5xn9aV3-U0XLMXgwAWqXH2XflNM_z617lTaiGLpH4-u_RUKW4k_u_Xfcjs29P-9X_5BrYs8aDol0C6wGh-QxLxCb1zVwRkfbycJai1rJ0C7HprNeCZKO1uZtX_3WTfrsQR4RfqJ_QSm31fWo38usXDkJWlPGoUg_Zu-U6vHVDPmFVfe6_A65N8N3bIsac8gGGHPBIzNXq_2pFZtcjzMm"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Alex R.</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Admin</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 p-margin-mobile md:p-margin-desktop w-full max-w-container-max mx-auto pb-24 md:pb-margin-desktop">
+<header class="mb-8 hidden md:flex justify-between items-end">
+<div>
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-2">Welcome back, Alex</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Here's what's happening today.</p>
+</div>
+<div class="flex gap-4">
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-4 py-2 rounded-lg font-label-md text-label-md transition-colors border border-white/10 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">find_in_page</span>
+                    Find Roommate
+                </button>
+<button class="bg-gradient-to-r from-inverse-primary to-primary-container text-white px-4 py-2 rounded-lg font-label-md text-label-md hover:bloom-shadow transition-shadow flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+                    List Item
+                </button>
+</div>
+</header>
+<!-- Mobile Quick Actions -->
+<div class="flex md:hidden gap-3 mb-8 overflow-x-auto pb-2 scrollbar-hide">
+<button class="flex-none bg-surface-container-high text-on-surface px-4 py-2.5 rounded-full font-label-md text-label-md border border-white/10 flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px] text-primary">person_search</span>
+                Find Roommate
+            </button>
+<button class="flex-none bg-primary-container/20 text-primary-fixed px-4 py-2.5 rounded-full font-label-md text-label-md border border-primary/30 flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                List Item
+            </button>
+<button class="flex-none bg-surface-container-high text-on-surface px-4 py-2.5 rounded-full font-label-md text-label-md border border-white/10 flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[18px] text-secondary">forum</span>
+                New Chat
+            </button>
+</div>
+<!-- Bento Grid Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-gutter mb-8">
+<!-- Stat 1 -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-colors"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="p-2 bg-surface-container-highest rounded-lg border border-white/5">
+<span class="material-symbols-outlined text-primary">diversity_3</span>
+</div>
+<span class="bg-primary/20 text-primary-fixed-dim px-2 py-1 rounded-full font-label-sm text-label-sm">+2 this week</span>
+</div>
+<h3 class="font-body-md text-body-md text-on-surface-variant mb-1 relative z-10">Active Matches</h3>
+<p class="font-headline-xl text-headline-xl text-on-surface relative z-10">4</p>
+</div>
+<!-- Stat 2 -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary/10 rounded-full blur-2xl group-hover:bg-secondary/20 transition-colors"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="p-2 bg-surface-container-highest rounded-lg border border-white/5">
+<span class="material-symbols-outlined text-secondary">account_balance_wallet</span>
+</div>
+</div>
+<h3 class="font-body-md text-body-md text-on-surface-variant mb-1 relative z-10">Wallet Balance</h3>
+<p class="font-headline-xl text-headline-xl text-on-surface relative z-10 font-[Geist] tracking-tight">$450.00</p>
+</div>
+<!-- Stat 3 -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden group md:col-span-1 col-span-1">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary/10 rounded-full blur-2xl group-hover:bg-tertiary/20 transition-colors"></div>
+<div class="flex justify-between items-start mb-4 relative z-10">
+<div class="p-2 bg-surface-container-highest rounded-lg border border-white/5">
+<span class="material-symbols-outlined text-tertiary">inventory_2</span>
+</div>
+<span class="w-2 h-2 bg-tertiary rounded-full animate-pulse"></span>
+</div>
+<h3 class="font-body-md text-body-md text-on-surface-variant mb-1 relative z-10">Pending Items</h3>
+<p class="font-headline-xl text-headline-xl text-on-surface relative z-10">12</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Recent Activity Feed -->
+<div class="lg:col-span-2 space-y-6">
+<h2 class="font-headline-md text-headline-md-mobile md:text-headline-md text-on-surface">Recent Activity</h2>
+<div class="space-y-4">
+<!-- Activity Item 1 -->
+<div class="glass-card rounded-xl p-4 flex gap-4 items-start hover:bg-surface-container-high/50 transition-colors">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
+<span class="material-symbols-outlined text-primary text-[20px]">chat_bubble</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<p class="font-body-md text-body-md text-on-surface"><span class="font-semibold text-primary-fixed">Sarah M.</span> replied to your housing inquiry.</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0 ml-2">2m ago</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant line-clamp-2">"Hi Alex! The room is still available. Would you like to schedule a quick tour tomorrow?"</p>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="glass-card rounded-xl p-4 flex gap-4 items-start hover:bg-surface-container-high/50 transition-colors">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0 border border-secondary/20">
+<span class="material-symbols-outlined text-secondary text-[20px]">sell</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<p class="font-body-md text-body-md text-on-surface">Your listing <span class="font-semibold text-secondary-fixed">Calculus Textbook</span> was favorited.</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0 ml-2">1h ago</span>
+</div>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="glass-card rounded-xl p-4 flex gap-4 items-start hover:bg-surface-container-high/50 transition-colors">
+<div class="w-10 h-10 rounded-full bg-tertiary/10 flex items-center justify-center shrink-0 border border-tertiary/20">
+<span class="material-symbols-outlined text-tertiary text-[20px]">task_alt</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-1">
+<p class="font-body-md text-body-md text-on-surface">Match completed! You and <span class="font-semibold text-tertiary-fixed">David K.</span> are now connected.</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0 ml-2">Yesterday</span>
+</div>
+<button class="mt-2 text-primary text-label-md font-label-md hover:underline">View Profile</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Widgets -->
+<div class="space-y-6">
+<!-- Market Highlight -->
+<div class="glass-card rounded-xl overflow-hidden">
+<div class="h-32 bg-surface-container-high relative">
+<div class="bg-cover bg-center w-full h-full opacity-60" data-alt="A macro shot of a sleek, modern graphing calculator resting on top of an open, densely annotated calculus textbook. The scene is illuminated by dramatic, moody lighting with subtle violet and blue neon reflections off the calculator screen, creating a high-tech, academic atmosphere. Shallow depth of field." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDrHl8f_1L_qIEN0JbeyRT_0-GkTdRwKEVCOKjn4a5JhUtymZwrz7FagvTFYgIeMR9piNQCqE50HzaaPmcSNIregmVcM8yatRREXOLBCH72k6USsKcl-02iiJ4OpNeyLQveeGGQFKwc1qvzZet2x27iXfhBTZmsKe0WTsz8zGx9CNM4j9YJjiTvZDLGuJIlTJlidTe2erHd0Y-boe8DmTgfGrUUQ-YW2qqaLnebzfS4JSNAOzn6q8_QAohmzuzYn7u1HZU2xgGuf98o')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-dim to-transparent"></div>
+<div class="absolute bottom-3 left-3 bg-secondary/20 backdrop-blur-md border border-secondary/30 px-2 py-1 rounded text-secondary-fixed font-[Geist] font-semibold text-sm">
+                            $45.00
+                         </div>
+</div>
+<div class="p-4">
+<h3 class="font-headline-sm text-headline-sm font-semibold text-on-surface mb-1">Texas Instruments TI-84 Plus</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-4">Gently used, perfect for engineering students.</p>
+<button class="w-full py-2 bg-surface-container-highest hover:bg-white/10 border border-white/10 rounded-lg text-on-surface font-label-md text-label-md transition-colors">View Details</button>
+</div>
+</div>
+<!-- Housing Highlight -->
+<div class="glass-card rounded-xl p-4 border-l-4 border-l-primary">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-label-md text-label-md font-bold text-primary-fixed uppercase tracking-wider">New Match</h3>
+<span class="material-symbols-outlined text-primary-fixed text-[18px]">verified</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-3">95% match with <strong>Emma S.</strong> looking for a 2BR apartment near North Campus.</p>
+<div class="flex gap-2">
+<span class="bg-surface-container-highest px-2 py-1 rounded text-xs text-on-surface-variant">Quiet Study</span>
+<span class="bg-surface-container-highest px-2 py-1 rounded text-xs text-on-surface-variant">Early Bird</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Mobile -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 md:hidden bg-surface-container-highest/80 backdrop-blur-2xl rounded-t-xl border-t border-white/10 shadow-[0_-4px_20px_rgba(139,92,246,0.15)] shadow-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container/40 text-primary-fixed-dim rounded-xl px-3 py-1 scale-110 duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary scale-110 duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">storefront</span>
+<span class="font-label-sm text-label-sm mt-1">Market</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary scale-110 duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">bed</span>
+<span class="font-label-sm text-label-sm mt-1">Housing</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary scale-110 duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm mt-1">Wallet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant/70 hover:text-primary scale-110 duration-300" href="#">
+<span class="material-symbols-outlined text-[24px]">chat_bubble</span>
+<span class="font-label-sm text-label-sm mt-1">Chat</span>
+</a>
+</nav>
+</body></html>

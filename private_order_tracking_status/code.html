@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Tracking - Unisphere Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#494454",
+                    "secondary-container": "#3131c0",
+                    "surface-container-low": "#151b2d",
+                    "on-tertiary": "#640039",
+                    "on-background": "#dce1fb",
+                    "surface-container-high": "#23293c",
+                    "on-tertiary-fixed-variant": "#8c0053",
+                    "on-primary": "#3c0091",
+                    "background": "#0c1324",
+                    "secondary-fixed": "#e1e0ff",
+                    "primary-fixed": "#e9ddff",
+                    "on-tertiary-fixed": "#3e0022",
+                    "tertiary-container": "#f751a1",
+                    "surface-dim": "#0c1324",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#ffb0cd",
+                    "on-secondary-fixed": "#07006c",
+                    "tertiary-fixed": "#ffd9e4",
+                    "secondary": "#c0c1ff",
+                    "on-primary-fixed-variant": "#5516be",
+                    "surface": "#0c1324",
+                    "on-surface-variant": "#cbc3d7",
+                    "on-secondary-fixed-variant": "#2f2ebe",
+                    "primary-fixed-dim": "#d0bcff",
+                    "surface-container": "#191f31",
+                    "primary": "#d0bcff",
+                    "on-primary-fixed": "#23005c",
+                    "on-primary-container": "#340080",
+                    "secondary-fixed-dim": "#c0c1ff",
+                    "on-secondary-container": "#b0b2ff",
+                    "on-error": "#690005",
+                    "inverse-primary": "#6d3bd7",
+                    "on-secondary": "#1000a9",
+                    "inverse-surface": "#dce1fb",
+                    "surface-container-lowest": "#070d1f",
+                    "surface-bright": "#33394c",
+                    "on-surface": "#dce1fb",
+                    "error": "#ffb4ab",
+                    "tertiary": "#ffb0cd",
+                    "primary-container": "#a078ff",
+                    "surface-variant": "#2e3447",
+                    "surface-container-highest": "#2e3447",
+                    "inverse-on-surface": "#2a3043",
+                    "surface-tint": "#d0bcff",
+                    "on-error-container": "#ffdad6",
+                    "on-tertiary-container": "#570032",
+                    "outline": "#958ea0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "40px",
+                    "unit-base": "8px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "label-md": ["Geist"],
+                    "headline-xl": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Geist"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-margin-desktop font-body-md relative">
+<!-- Task-Focused Header (Suppresses Global Shell per Guidelines) -->
+<header class="sticky top-0 w-full z-40 bg-surface/60 backdrop-blur-md border-b border-white/10 px-margin-mobile md:px-margin-desktop h-16 flex justify-between items-center shadow-md">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors focus:outline-none">
+<span class="material-symbols-outlined">arrow_back</span>
+<span class="font-label-md text-label-md hidden md:inline">Back to Market</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-extrabold text-primary tracking-tight">Order #UNS-8924</h1>
+<button class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none">
+<span class="material-symbols-outlined">help</span>
+</button>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Status & Timeline -->
+<div class="lg:col-span-7 space-y-gutter flex flex-col">
+<!-- Escrow Status Card (Level 1 Elevation + Glow) -->
+<section class="bg-surface-container-high/40 backdrop-blur-[12px] border border-white/10 rounded-xl p-6 md:p-8 relative overflow-hidden shadow-lg">
+<div class="absolute -top-10 -right-10 w-48 h-48 bg-primary/20 rounded-full blur-[40px] pointer-events-none"></div>
+<div class="flex items-start md:items-center gap-4 mb-6 md:mb-8 relative z-10">
+<div class="bg-secondary-container/40 p-4 rounded-full border border-secondary text-secondary shrink-0">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">lock</span>
+</div>
+<div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Paid - In Escrow</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-md">Your funds are securely held in the Unisphere Escrow. They will not be released to the seller until you confirm receipt of the item.</p>
+</div>
+</div>
+<button class="w-full sm:w-auto bg-gradient-to-r from-primary-container to-inverse-primary text-white font-label-md text-label-md py-3 md:py-4 px-6 md:px-8 rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] transition-all flex items-center justify-center gap-2 relative z-10 border border-white/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Confirm Receipt & Release Funds
+                    </button>
+</section>
+<!-- Tracking Timeline (Level 1 Elevation) -->
+<section class="bg-surface-container-high/40 backdrop-blur-[12px] border border-white/10 rounded-xl p-6 md:p-8 flex-grow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-8 border-b border-outline-variant/30 pb-4">Tracking History</h3>
+<div class="relative border-l-2 border-outline-variant/30 ml-4 space-y-10">
+<!-- Step 1: Ordered (Completed) -->
+<div class="relative pl-8">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-primary ring-4 ring-background shadow-[0_0_10px_rgba(208,188,255,0.5)]"></div>
+<h4 class="font-label-md text-label-md text-on-surface">Order Placed</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1 font-mono">Oct 24, 2024 - 10:30 AM</p>
+</div>
+<!-- Step 2: Payment Verified (Completed) -->
+<div class="relative pl-8">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-primary ring-4 ring-background shadow-[0_0_10px_rgba(208,188,255,0.5)]"></div>
+<h4 class="font-label-md text-label-md text-on-surface">Payment Verified & Escrowed</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1 font-mono">Oct 24, 2024 - 10:32 AM</p>
+</div>
+<!-- Step 3: Shipped (Active/In Progress) -->
+<div class="relative pl-8">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-surface-container-highest border-2 border-primary ring-4 ring-background animate-pulse"></div>
+<h4 class="font-label-md text-label-md text-primary font-bold">Item Shipped / Handed Over</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Awaiting status update from seller...</p>
+<div class="mt-3 bg-surface-container-low border border-outline-variant/50 rounded p-3 inline-block">
+<p class="font-label-sm text-label-sm text-on-surface">Estimated Delivery: <span class="text-secondary font-mono">Oct 26, 2024</span></p>
+</div>
+</div>
+<!-- Step 4: Received (Pending) -->
+<div class="relative pl-8 opacity-50">
+<div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-surface-container border-2 border-outline-variant ring-4 ring-background"></div>
+<h4 class="font-label-md text-label-md text-on-surface">Received by Buyer</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">Pending your confirmation</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Item Summary & Transaction Details -->
+<div class="lg:col-span-5 space-y-gutter flex flex-col">
+<!-- Item Summary Card -->
+<section class="bg-surface-container-high/40 backdrop-blur-[12px] border border-white/10 rounded-xl p-6">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-5">Item Details</h3>
+<div class="flex gap-4 items-start">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0 border border-white/10 bg-surface-container-lowest">
+<img class="w-full h-full object-cover" data-alt="A macro photography shot of a sleek, high-end mechanical keyboard resting on a dark, reflective glass desk. The keyboard features subtle, icy-blue LED backlighting that illuminates the dark grey keycaps. The lighting is moody and cinematic, highlighting the premium texture of the materials against a deep slate background, perfectly fitting a sophisticated, tech-forward aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCsaRizUbS-P1fj25asjHnAqN17lBHe4gJ9IhAnOPHTD0juNcdxFEo4esjQfdRkGIV9exF4HrXxRfisqcrMJBvdAzHJWaX1y_-fB-FOYJ1S5kno3BgJhHF7iN7y4l6YURgJqAiediwId_VEHYPxLJu70oCO0p_CZqJFM_5h_jsEp3FAMDKJG4ls5ZiiFa98rVgB3DfFzgToWpP_J2z7uPBiawnbbei_Jo1XIbZ2sRc0OAKMoinADKG3QLWGuQwlmdkXRLwzWMRp6HY"/>
+</div>
+<div class="flex flex-col justify-between h-full">
+<div>
+<h4 class="font-body-md text-body-md text-on-surface font-medium leading-snug">Keychron K8 Pro Wireless Mechanical Keyboard</h4>
+<div class="mt-2 inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-label-sm text-label-sm border border-primary/20">
+                                    Electronics
+                                </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Transaction Details Card -->
+<section class="bg-surface-container-high/40 backdrop-blur-[12px] border border-white/10 rounded-xl p-6">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-5">Payment Breakdown</h3>
+<div class="space-y-4 font-label-md text-label-md font-mono">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span class="text-on-surface">KSh 12,500.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Escrow Fee (1.5%)</span>
+<span class="text-on-surface">KSh 187.50</span>
+</div>
+<hr class="border-outline-variant/40"/>
+<div class="flex justify-between text-primary items-center pt-2">
+<span class="font-bold uppercase tracking-wider text-xs">Total Paid</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">KSh 12,687.50</span>
+</div>
+</div>
+<!-- M-Pesa Reference Block -->
+<div class="mt-6 p-4 rounded-lg bg-surface-container-lowest/50 border border-white/5 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="flex items-center gap-2 mb-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">M-Pesa Reference</span>
+</div>
+<div class="flex justify-between items-center mt-1">
+<p class="font-label-md text-label-md text-on-surface font-mono tracking-[0.2em] text-lg">SDF89XC21A</p>
+<button class="text-primary hover:text-primary-fixed transition-colors" title="Copy Reference">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Seller Contact Card -->
+<section class="bg-surface-container-high/40 backdrop-blur-[12px] border border-white/10 rounded-xl p-6">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-5">Seller Information</h3>
+<div class="flex items-center gap-4 mb-6">
+<div class="w-14 h-14 rounded-full overflow-hidden border-2 border-primary/30 relative">
+<img class="w-full h-full object-cover" data-alt="A professional, cinematic portrait of a young adult university student looking confidently at the camera. The background is a slightly blurred modern architectural space featuring translucent glass panels and deep slate tones. The lighting is soft but dramatic, casting a subtle violet glow on the subject's face, accentuating a sophisticated, academic, and tech-forward lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLV11G9CchmjRAb7l7aVXxUaI1g9AVCYNeM76Clzth-2F_u97CqPgbGxzpSydUUW_9Qp2TZQu5vXhIx8MqwaM0BT3Cdj2Xn-N1hBpMMMrXO5v8VoN1TLRFrvvIeJRjU8kLYN63N4Kr_I4qFWL6PREgBAW5vsEhfzjanteiRrz72OA4Msy9958FOPooX-tDk3ZQcp2wnMq0-M5pCY7NCiis1A4MrcwZ7XrZpneagaMxNrGKWdX8Fax-0nHrx6PscUHr1OX-j6nj4ARX"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-surface-container-high"></div>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface font-medium text-base">Alex Kariuki</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Engineering Campus • <span class="text-tertiary-fixed-dim">4.9/5 Rating</span></p>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<button class="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 text-on-surface font-label-md text-label-md py-2.5 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+                            Message
+                        </button>
+<button class="bg-white/5 hover:bg-white/10 backdrop-blur-md border border-white/10 text-on-surface font-label-md text-label-md py-2.5 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">call</span>
+                            Call
+                        </button>
+</div>
+</section>
+</div>
+</div>
+</main>
+</body></html>
